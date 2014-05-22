@@ -1,60 +1,16 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/unitra"
-    tools:context="${packageName}.${activityClass}" >
-    <TextView
-        android:text="Feels just like being home!"
+    android:background="@drawable/uni"
+    android:orientation="vertical" >
+
+    <com.facebook.widget.LoginButton
+        android:id="@+id/authButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleType="fitCenter"
-        android:id="@+id/app_name"
-        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
         />
 
-    <Button android:id="@+id/log_in"
-        android:layout_width="fill_parent"
-        android:layout_height="50dip"
-        android:layout_marginBottom="40dip"
-        android:focusable="true"
-        android:color="#f8f8ff"
-        android:layout_alignParentBottom="true"
-        android:textSize="32sp"
-        android:text="Log In"
-        android:background="#0000"
-        />
-
-    <Button android:id="@+id/log_in_facebook"
-        android:layout_width="fill_parent"
-        android:layout_height="50dip"
-        android:layout_marginBottom="100dip"
-        android:focusable="true"
-        android:color="#f8f8ff"
-        android:layout_alignParentBottom="true"
-        android:textSize="26sp"
-        android:background="#0000"
-        android:text="Register with Facebook" />
-
-    <Button android:id="@+id/sign_in"
-        android:layout_width="fill_parent"
-        android:layout_height="50dip"
-        android:layout_marginBottom="160dip"
-        android:focusable="true"
-        android:color="#f8f8ff"
-        android:textSize="32sp"
-        android:background="#0000"
-        android:layout_alignParentBottom="true"
-        android:text="Sign In" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:gravity="center"
-        android:scaleType="fitCenter"
-        android:text="Welcome to Home Stay Manager" />
-
-</RelativeLayout>
+</LinearLayout>
