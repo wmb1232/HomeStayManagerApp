@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.facebook.Session;
 import com.facebook.SessionState;
@@ -19,6 +22,7 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+      //  setupLoginButton(View); 
 
         if (savedInstanceState == null) {
         	mainFragment = new MainFragment();
@@ -31,15 +35,15 @@ public class MainActivity extends FragmentActivity {
             mainFragment = (MainFragment) getSupportFragmentManager()
             .findFragmentById(android.R.id.content);
         }
-        // start Facebook Login
-        Session.openActiveSession(this, true, new Session.StatusCallback() {
+       /* // start Facebook Login
+       Session.openActiveSession(this, true, new Session.StatusCallback() {
         // callback when session changes state
               @Override
               public void call(Session session, SessionState state, Exception exception) {
               }
-        });
+        });*/;
         
-        
+       
     }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -84,6 +88,27 @@ public class MainActivity extends FragmentActivity {
             View rootView = inflater.inflate(R.layout.activity_main, container, false);
             return rootView;
         }
+    }
+    
+    public void setupLoginButton(View v)
+    { 
+    	Toast.makeText(MainActivity.this, "YESSS", Toast.LENGTH_LONG)
+		.show();
+    	startActivity(new Intent(MainActivity.this,EmailLogin.class));
+    	//piece of code below was not going to OnClick
+    	/* 
+    	LayoutInflater l = getLayoutInflater();
+    	View testView = l.inflate(R.layout.activity_main,null);
+    	Button loginButton = (Button) testView.findViewById(R.id.emailLoginButton);
+    	loginButton.setOnClickListener(new View.OnClickListener() {
+			//@Override
+			public void onClick(View argo) {
+				System.out.println("hello my people");
+				Log.i("DemoButtonApp","You pressed the button");
+				//Toast.makeText(MainActivity.this, "YESSS", Toast.LENGTH_LONG)
+				//.show();
+			}
+		});*/
     }
 
 }

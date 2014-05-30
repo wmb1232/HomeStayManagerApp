@@ -35,4 +35,5 @@ public class MainFragment extends Fragment {
 	        onSessionStateChange(session, state, exception);
 	    }
 	};
+	
 }
