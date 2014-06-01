@@ -3,8 +3,6 @@ package com.example.homestaymanagerandroidapp;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -13,20 +11,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
-public class EmailLogin extends Activity {
+public class MainMenu extends ActionBarActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_email_login);
+		setContentView(R.layout.activity_main_menu);
 
+		if (savedInstanceState == null) {
+			getSupportFragmentManager().beginTransaction()
+					.add(R.id.container, new PlaceholderFragment()).commit();
+		}
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.email_login, menu);
+		getMenuInflater().inflate(R.menu.main_menu, menu);
 		return true;
 	}
 
@@ -53,15 +55,10 @@ public class EmailLogin extends Activity {
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_email_login,
+			View rootView = inflater.inflate(R.layout.fragment_main_menu,
 					container, false);
 			return rootView;
 		}
-	}
-	public void goMainMenu(View v)
-	{
-		startActivity(new Intent(EmailLogin.this,MainMenu.class));
-		
 	}
 
 }

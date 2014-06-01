@@ -36,6 +36,10 @@
             android:name="com.example.homestaymanagerandroidapp.EmailLogin"
             android:label="@string/title_activity_email_login" >
         </activity>
+        <activity
+            android:name="com.example.homestaymanagerandroidapp.MainMenu"
+            android:label="@string/title_activity_main_menu" >
+        </activity>
     </application>
 
 </manifest>

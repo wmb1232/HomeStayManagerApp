@@ -92,8 +92,6 @@ public class MainActivity extends FragmentActivity {
     
     public void setupLoginButton(View v)
     { 
-    	Toast.makeText(MainActivity.this, "YESSS", Toast.LENGTH_LONG)
-		.show();
     	startActivity(new Intent(MainActivity.this,EmailLogin.class));
     	//piece of code below was not going to OnClick
     	/* 

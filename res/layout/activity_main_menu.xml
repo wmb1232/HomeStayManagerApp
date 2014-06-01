@@ -1,0 +1,48 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:gravity="center_vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    tools:context="com.example.homestaymanagerandroidapp.MainMenu" >
+
+    <Button
+        android:id="@+id/searchWizard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:text="Search Wizard" />
+
+    <Button
+        android:id="@+id/editProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/searchWizard"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:text="View/Edit Profile" />
+
+    <Button
+        android:id="@+id/manualSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editProfile"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:text="Manual Search" />
+
+    <Button
+        android:id="@+id/favorites"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/manualSearch"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:text="View/Edit Favorites" />
+
+</RelativeLayout>

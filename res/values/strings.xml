@@ -6,5 +6,6 @@
     <string name="action_settings">Settings</string>
     <string name="app_id">619295488161535</string>
     <string name="title_activity_email_login">EmailLogin</string>
+    <string name="title_activity_main_menu">MainMenu</string>
 
 </resources>
