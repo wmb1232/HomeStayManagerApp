@@ -41,7 +41,7 @@ public class MainFragment extends Fragment {
 				
 				@Override
 				public void onCompleted(GraphUser user, Response response) {
-					// TODO Auto-generated method stub
+					System.out.println(user.getName());
 					
 				}
 			}).executeAsync();
