@@ -1,7 +1,8 @@
 package com.example.homestaymanagerandroidapp;
+
 import java.util.Date;
 
-public class Student {
+public class Family {
 	public int _id;
 	public String firstName;
 	public String lastName;
@@ -16,4 +17,5 @@ public class Student {
 	public String allergies;
 	public boolean dogPet;
 	public boolean catPet;	
+
 }

@@ -8,6 +8,11 @@ import android.util.Log;
 public class MySQLiteHelper extends SQLiteOpenHelper{
 	
 	public static final String TABLE_STUDENTS = "Students";
+	public static final String TABLE_FAMILIES = "Families";
+	public static final String TABLE_WIZARD_MATCH = "WizMatch";
+	public static final String TABLE_FAVORITES = "Favorites";
+	
+	
 	public static final String COLUMN_ID = "_id";
 	public static final String COLUMN_FNAME = "firstName";
 	public static final String COLUMN_LNAME = "lastName";
@@ -22,13 +27,17 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 	public static final String COLUMN_ALLERGIES = "allergies";
 	public static final String COLUMN_DOG_PET_PREF = "dogPetPref";
 	public static final String COLUMN_CAT_PET_PREF = "catPetPref";
+	public static final String COLUMN_FAMSIZE = "familySize";
+	
+	public static final String COLUMN_STUDENTID = "StudentID";
+	public static final String COLUMN_FAMILYID = "FamilyID";
 	
 	
 	private static final String DATABASE_NAME = "HomeStay.db";
 	private static final int DATABASE_VERSION = 1;
 	
 	//Database creation sql statement
-	private static final String DATABASE_CREATE = "create table "
+	private static final String DATABASE_CREATE_STUDENT = "create table "
 		      + TABLE_STUDENTS + "(" + COLUMN_ID
 		      + " integer primary key autoincrement, " + COLUMN_FNAME
 		      + " text not null, " + COLUMN_LNAME + " text not null, " + 
@@ -39,13 +48,30 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 		      " integer, " + COLUMN_DOG_PET_PREF + " integer, " + COLUMN_CAT_PET_PREF + 
 		      " integer" + ");" ;
 	
+	private static final String DATABASE_CREATE_FAMILIES = "create table "
+		      + TABLE_FAMILIES + "(" + COLUMN_ID
+		      + " integer primary key autoincrement, " + COLUMN_FNAME
+		      + " text not null, " + COLUMN_LNAME + " text not null, " + 
+		      COLUMN_GENDER + " text, "  + COLUMN_PHONE + " text not null, " +  
+		      COLUMN_EMAIL + " text, " + COLUMN_START_DATE + " text, "
+		      + COLUMN_END_DATE + " text, " + COLUMN_ADDRESS + " text, " +
+		      COLUMN_ZIP + " text, " + COLUMN_STATE + " text, " + COLUMN_ALLERGIES + 
+		      " integer, " + COLUMN_DOG_PET_PREF + " integer, " + COLUMN_CAT_PET_PREF + 
+		      " integer" + ");" ;
+	
+	private static final String DATABASE_CREATE_WIZMATCH = "create table" + TABLE_WIZARD_MATCH +
+			"(" + COLUMN_STUDENTID + " integer primary key , " + COLUMN_FAMILYID + " integer not null); ";
+	
 	public MySQLiteHelper(Context context) {
 	    super(context, DATABASE_NAME, null, DATABASE_VERSION);
 	  }
 	
 	@Override
 	  public void onCreate(SQLiteDatabase database) {
-	    database.execSQL(DATABASE_CREATE);
+	    database.execSQL(DATABASE_CREATE_STUDENT);
+	    database.execSQL(DATABASE_CREATE_FAMILIES);
+	    database.execSQL(DATABASE_CREATE_WIZMATCH);
+	    
 	  }
 	
 	 @Override
