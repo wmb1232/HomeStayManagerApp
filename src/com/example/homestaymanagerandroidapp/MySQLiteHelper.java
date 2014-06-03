@@ -70,7 +70,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 	  public void onCreate(SQLiteDatabase database) {
 	    database.execSQL(DATABASE_CREATE_STUDENT);
 	    database.execSQL(DATABASE_CREATE_FAMILIES);
-	    database.execSQL(DATABASE_CREATE_WIZMATCH);
+	    //database.execSQL(DATABASE_CREATE_WIZMATCH);
 	    
 	  }
 	
