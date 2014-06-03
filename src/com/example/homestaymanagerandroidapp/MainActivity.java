@@ -13,11 +13,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+
 import com.facebook.Session;
 import com.facebook.SessionState;
 
 public class MainActivity extends FragmentActivity {
 
+	
+	
 	private MainFragment mainFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

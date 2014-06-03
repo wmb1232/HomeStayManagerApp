@@ -1,0 +1,60 @@
+package com.example.homestaymanagerandroidapp;
+
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
+public class MySQLiteHelper extends SQLiteOpenHelper{
+	
+	public static final String TABLE_STUDENTS = "Students";
+	public static final String COLUMN_ID = "_id";
+	public static final String COLUMN_FNAME = "firstName";
+	public static final String COLUMN_LNAME = "lastName";
+	public static final String COLUMN_GENDER = "gender";
+	public static final String COLUMN_PHONE = "phone";
+	public static final String COLUMN_EMAIL = "email";
+	public static final String COLUMN_START_DATE = "startDate";
+	public static final String COLUMN_END_DATE = "finalDate";
+	public static final String COLUMN_ADDRESS = "address";
+	public static final String COLUMN_STATE = "state";
+	public static final String COLUMN_ZIP = "zipCode";
+	public static final String COLUMN_ALLERGIES = "allergies";
+	public static final String COLUMN_DOG_PET_PREF = "dogPetPref";
+	public static final String COLUMN_CAT_PET_PREF = "catPetPref";
+	
+	
+	private static final String DATABASE_NAME = "HomeStay.db";
+	private static final int DATABASE_VERSION = 1;
+	
+	//Database creation sql statement
+	private static final String DATABASE_CREATE = "create table "
+		      + TABLE_STUDENTS + "(" + COLUMN_ID
+		      + " integer primary key autoincrement, " + COLUMN_FNAME
+		      + " text not null, " + COLUMN_LNAME + " text not null, " + 
+		      COLUMN_GENDER + " text, "  + COLUMN_PHONE + " text not null, " +  
+		      COLUMN_EMAIL + " text, " + COLUMN_START_DATE + " text, "
+		      + COLUMN_END_DATE + " text, " + COLUMN_ADDRESS + " text, " +
+		      COLUMN_ZIP + " text, " + COLUMN_STATE + " text, " + COLUMN_ALLERGIES + 
+		      " integer, " + COLUMN_DOG_PET_PREF + " integer, " + COLUMN_CAT_PET_PREF + 
+		      " integer" + ");" ;
+	
+	public MySQLiteHelper(Context context) {
+	    super(context, DATABASE_NAME, null, DATABASE_VERSION);
+	  }
+	
+	@Override
+	  public void onCreate(SQLiteDatabase database) {
+	    database.execSQL(DATABASE_CREATE);
+	  }
+	
+	 @Override
+	  public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+	    Log.w(MySQLiteHelper.class.getName(),
+	        "Upgrading database from version " + oldVersion + " to "
+	            + newVersion + ", which will destroy all old data");
+	    db.execSQL("DROP TABLE IF EXISTS " + TABLE_STUDENTS);
+	    onCreate(db);
+	  }
+
+}

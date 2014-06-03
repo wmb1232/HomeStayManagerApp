@@ -21,6 +21,8 @@ import com.facebook.model.GraphUser;
 import com.facebook.widget.LoginButton;
 
 public class MainFragment extends Fragment {
+	
+	Student test;
 	@Override
 	public View onCreateView(LayoutInflater inflater, 
 	        ViewGroup container, 
@@ -42,7 +44,10 @@ public class MainFragment extends Fragment {
 				@Override
 				public void onCompleted(GraphUser user, Response response) {
 					System.out.println(user.getName());
-					
+					test = new Student();
+					test.firstName = user.getFirstName();
+					test.lastName = user.getLastName();
+					test.emailAddress = user.getProperty("email").toString();					
 				}
 			}).executeAsync();
 	        startActivity(new Intent(getActivity(),MainMenu.class));
