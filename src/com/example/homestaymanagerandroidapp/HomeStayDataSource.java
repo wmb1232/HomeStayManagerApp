@@ -83,15 +83,15 @@ public class HomeStayDataSource {
 		        + " = " + email , null);
 		}
 		
-		public Student getStudent(String email){
-			System.out.println("Getting Student with email: " + email);
-			
-			Cursor cursor = database.query(MySQLiteHelper.TABLE_STUDENTS, allColumns , MySQLiteHelper.COLUMN_EMAIL + " = " + email,
-		            new String[] { String.valueOf(id) }, null, null, null, null);
-			
-			Cursor cursor = database.query(MySQLiteHelper.TABLE_STUDENTS,
-				    allColumns, null, null, null, null, null);
-		}
+//		public Student getStudent(String email){
+//			System.out.println("Getting Student with email: " + email);
+//			
+//			Cursor cursor = database.query(MySQLiteHelper.TABLE_STUDENTS, allColumns , MySQLiteHelper.COLUMN_EMAIL + " = " + email,
+//		            new String[] { String.valueOf(id) }, null, null, null, null);
+//			
+//			Cursor cursor = database.query(MySQLiteHelper.TABLE_STUDENTS,
+//				    allColumns, null, null, null, null, null);
+//		}
 		  
 		  
 		  
@@ -121,8 +121,8 @@ public class HomeStayDataSource {
 			    student.gender = cursor.getString(3);
 			    student.phone = cursor.getString(4);
 			    student.emailAddress = cursor.getString(5);
-			    student.startDate = new Date(cursor.getString(6));
-			    student.endDate = new Date(cursor.getString(7));
+			    student.startDate = cursor.getString(6);
+			    student.endDate = cursor.getString(7);
 			    student.address = cursor.getString(8);
 			    student.state = cursor.getString(9);
 			    student.zipCode = cursor.getInt(10);

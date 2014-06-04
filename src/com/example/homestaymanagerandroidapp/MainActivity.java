@@ -11,7 +11,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.Toast;
+
 
 
 import com.facebook.Session;
@@ -96,20 +98,23 @@ public class MainActivity extends FragmentActivity {
     public void setupLoginButton(View v)
     { 
     	startActivity(new Intent(MainActivity.this,EmailLogin.class));
-    	//piece of code below was not going to OnClick
-    	/* 
-    	LayoutInflater l = getLayoutInflater();
-    	View testView = l.inflate(R.layout.activity_main,null);
-    	Button loginButton = (Button) testView.findViewById(R.id.emailLoginButton);
-    	loginButton.setOnClickListener(new View.OnClickListener() {
-			//@Override
-			public void onClick(View argo) {
-				System.out.println("hello my people");
-				Log.i("DemoButtonApp","You pressed the button");
-				//Toast.makeText(MainActivity.this, "YESSS", Toast.LENGTH_LONG)
-				//.show();
-			}
-		});*/
+
+    }
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+        
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radio_family:
+                if (checked)
+                    // put code here
+                break;
+            case R.id.radio_student:
+                if (checked)
+                    // put code here
+                break;
+        }
     }
 
 }

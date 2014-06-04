@@ -67,29 +67,12 @@ public class EmailLogin extends Activity {
     	   final int dogPet = 0;
     	   final int catPet = 1;
     	   final String allergies = "NONE";
-    	   
-    	   
-//    	   System.out.println("**************************");
-//    	   System.out.println(fname);
-//    	   System.out.println(lname);
-//    	   System.out.println(email);
-//    	   System.out.println(gender);
-//    	   System.out.println(phone);
-//    	   System.out.println(startDate);
-//    	   System.out.println(endDate);
-//    	   System.out.println(mail);
-//    	   System.out.println(state);
-//    	   System.out.println(zip);
-//    	   System.out.println(allergies);
-//    	   System.out.println(dogPet);
-//    	   System.out.println(catPet);
-//    	   System.out.println("**************************");
 
    
-//    	   	Student st;
-//        	st = datasource.createStudent(fname, lname, email, gender, 
-//        		   					phone, startDate, endDate, mail, 
-//        			   					state, zip, allergies, dogPet, catPet);
+    	   	Student st;
+          	st = datasource.createStudent(fname, lname, email, gender, 
+        		   					phone, startDate, endDate, mail, 
+        			   					state, zip, allergies, dogPet, catPet,2);
         	 
      	    ArrayList<Student> values = new ArrayList<Student>();
 
