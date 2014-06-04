@@ -9,44 +9,62 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.provider.SyncStateContract.Columns;
 
 public class HomeStayDataSource {
 	
 	// Database fields
 	  private SQLiteDatabase database;
 	  private MySQLiteHelper dbHelper;
-	  private String[] allColumns = { MySQLiteHelper.COLUMN_ID,
-	      MySQLiteHelper.COLUMN_EMAIL};
+	  private String[] allColumns = 
+		  { 	MySQLiteHelper.COLUMN_ID,
+				MySQLiteHelper.COLUMN_FNAME,
+				MySQLiteHelper.COLUMN_LNAME,
+				MySQLiteHelper.COLUMN_GENDER,
+				MySQLiteHelper.COLUMN_PHONE,
+				MySQLiteHelper.COLUMN_EMAIL,
+				MySQLiteHelper.COLUMN_START_DATE,
+				MySQLiteHelper.COLUMN_END_DATE,
+				MySQLiteHelper.COLUMN_ADDRESS,
+				MySQLiteHelper.COLUMN_STATE,
+				MySQLiteHelper.COLUMN_ZIP,
+				MySQLiteHelper.COLUMN_ALLERGIES,
+				MySQLiteHelper.COLUMN_DOG_PET_PREF,
+				MySQLiteHelper.COLUMN_CAT_PET_PREF,
+				MySQLiteHelper.COLUMN_FAMSIZE
+		  };
 	  
 	  public HomeStayDataSource(Context context) {
 		    dbHelper = new MySQLiteHelper(context);
 		  }
 
-		  public void open() throws SQLException {
+		public void open() throws SQLException {
 		    database = dbHelper.getWritableDatabase();
 		  }
 
-		  public void close() {
+		public void close() {
 		    dbHelper.close();
 		  }
 
-		  public Student createStudent(String fname, String lname, String email, String gender, 
+		public Student createStudent(String fname, String lname, String email, String gender, 
 				  String phone, String sDate, String eDate, String address, String state, 
-				  int zip, String allergies, int dogPet, int catPet) {
-		    ContentValues values = new ContentValues();
+				  int zip, String allergies, int dogPet, int catPet, int famSize) {
+		    
+			ContentValues values = new ContentValues();
 		    values.put(MySQLiteHelper.COLUMN_FNAME, fname);
 		    values.put(MySQLiteHelper.COLUMN_LNAME, lname);
-//		    values.put(MySQLiteHelper.COLUMN_EMAIL, email);
-//		    values.put(MySQLiteHelper.COLUMN_GENDER, gender);
+		    values.put(MySQLiteHelper.COLUMN_EMAIL, email);
+		    values.put(MySQLiteHelper.COLUMN_GENDER, gender);
 		    values.put(MySQLiteHelper.COLUMN_PHONE, phone);
-//		    values.put(MySQLiteHelper.COLUMN_START_DATE, sDate);
-//		    values.put(MySQLiteHelper.COLUMN_END_DATE, eDate);
-//		    values.put(MySQLiteHelper.COLUMN_ADDRESS, address);
-//		    values.put(MySQLiteHelper.COLUMN_STATE, state);
-//		    values.put(MySQLiteHelper.COLUMN_ZIP, zip);
-//		    values.put(MySQLiteHelper.COLUMN_ALLERGIES, allergies);
-//		    values.put(MySQLiteHelper.COLUMN_DOG_PET_PREF, dogPet);
-//		    values.put(MySQLiteHelper.COLUMN_CAT_PET_PREF, catPet);
+		    values.put(MySQLiteHelper.COLUMN_START_DATE, sDate);
+		    values.put(MySQLiteHelper.COLUMN_END_DATE, eDate);
+		    values.put(MySQLiteHelper.COLUMN_ADDRESS, address);
+		    values.put(MySQLiteHelper.COLUMN_STATE, state);
+		    values.put(MySQLiteHelper.COLUMN_ZIP, zip);
+		    values.put(MySQLiteHelper.COLUMN_ALLERGIES, allergies);
+		    values.put(MySQLiteHelper.COLUMN_DOG_PET_PREF, dogPet);
+		    values.put(MySQLiteHelper.COLUMN_CAT_PET_PREF, catPet);
+		    values.put(MySQLiteHelper.COLUMN_FAMSIZE, famSize);
 		    long insertId = database.insert(MySQLiteHelper.TABLE_STUDENTS, null,
 		        values);
 		    Cursor cursor = database.query(MySQLiteHelper.TABLE_STUDENTS,
@@ -58,55 +76,91 @@ public class HomeStayDataSource {
 		    return newStudent;
 		  }
 		  
+		public void deleteStudent(String email)
+		{
+		    System.out.println("Student deleted with email: " + email);
+		    database.delete(MySQLiteHelper.TABLE_STUDENTS, MySQLiteHelper.COLUMN_EMAIL
+		        + " = " + email , null);
+		}
+		
+		public Student getStudent(String email){
+			System.out.println("Getting Student with email: " + email);
+			
+			Cursor cursor = database.query(MySQLiteHelper.TABLE_STUDENTS, allColumns , MySQLiteHelper.COLUMN_EMAIL + " = " + email,
+		            new String[] { String.valueOf(id) }, null, null, null, null);
+			
+			Cursor cursor = database.query(MySQLiteHelper.TABLE_STUDENTS,
+				    allColumns, null, null, null, null, null);
+		}
+		  
+		  
 		  
 		  public ArrayList<Student> getAllStudents() {
-			     ArrayList<Student> students = new ArrayList<Student>();
-
-			    Cursor cursor = database.query(MySQLiteHelper.TABLE_STUDENTS,
-			        allColumns, null, null, null, null, null);
-
-			    cursor.moveToFirst();
-			    while (!cursor.isAfterLast()) {
-			      Student student = cursorToStudent(cursor);
-			      students.add(student);
-			      cursor.moveToNext();
-			    }
-			    // make sure to close the cursor
-			    cursor.close();
-			    return students;
-			  }
+			ArrayList<Student> students = new ArrayList<Student>();
+			
+			Cursor cursor = database.query(MySQLiteHelper.TABLE_STUDENTS,
+			    allColumns, null, null, null, null, null);
+			
+			cursor.moveToFirst();
+			while (!cursor.isAfterLast()) {
+			  Student student = cursorToStudent(cursor);
+			  students.add(student);
+			  cursor.moveToNext();
+			}
+			// make sure to close the cursor
+		    cursor.close();
+		    return students;
+		}
 		  
 		private Student cursorToStudent(Cursor cursor) {
-			    Student student = new Student();
+			    
+				Student student = new Student();
 			    student._id = cursor.getInt(0);
 			    student.firstName = cursor.getString(1);
-			    //student.lastName = cursor.getString(2);
-			    //student.gender = cursor.getString(3);
-			    //student.phone = cursor.getString(4);
-			    //student.emailAddress = cursor.getString(5);
-			    //student.startDate = new Date(cursor.getString(6));
-			    //student.endDate = new Date(cursor.getString(7));
-			    //student.address = cursor.getString(8);
-			    //student.zipCode = cursor.getInt(9);
-			    //student.state = cursor.getString(10);
-//			    student.allergies = cursor.getString(11);
-//			    if(cursor.getInt(12) == 1)
-//			    {
-//			    	student.dogPet = true;
-//			    }
-//			    else
-//			    {
-//			    	student.dogPet = false;
-//			    }
-//			    if(cursor.getInt(13) == 1)
-//			    {
-//			    	student.catPet = true;
-//			    }
-//			    else
-//			    {
-//			    	student.catPet = false;
-//			    }
+			    student.lastName = cursor.getString(2);
+			    student.gender = cursor.getString(3);
+			    student.phone = cursor.getString(4);
+			    student.emailAddress = cursor.getString(5);
+			    student.startDate = new Date(cursor.getString(6));
+			    student.endDate = new Date(cursor.getString(7));
+			    student.address = cursor.getString(8);
+			    student.state = cursor.getString(9);
+			    student.zipCode = cursor.getInt(10);
+			    student.allergies = cursor.getString(11);
+			    if(cursor.getInt(12) == 1)
+			    {
+			    	student.dogPet = true;
+			    }
+			    else
+			    {
+			    	student.dogPet = false;
+			    }
+			    if(cursor.getInt(13) == 1)
+			    {
+			    	student.catPet = true;
+			    }
+			    else
+			    {
+			    	student.catPet = false;
+			    }
+			    student.famSize = cursor.getInt(14);
 			    
+			    System.out.println("ID:" + cursor.getColumnIndex(MySQLiteHelper.COLUMN_ID));
+			    System.out.println("fname:" + cursor.getColumnIndex(MySQLiteHelper.COLUMN_FNAME));
+			    System.out.println("lname:" + cursor.getColumnIndex(MySQLiteHelper.COLUMN_LNAME));
+			    System.out.println("gender:" + cursor.getColumnIndex(MySQLiteHelper.COLUMN_GENDER));
+			    System.out.println("phone:" + cursor.getColumnIndex(MySQLiteHelper.COLUMN_PHONE));
+			    System.out.println("email:" + cursor.getColumnIndex(MySQLiteHelper.COLUMN_EMAIL));
+			    System.out.println("sDate:" + cursor.getColumnIndex(MySQLiteHelper.COLUMN_START_DATE));
+			    System.out.println("eDate:" + cursor.getColumnIndex(MySQLiteHelper.COLUMN_END_DATE));
+			    System.out.println("address:" + cursor.getColumnIndex(MySQLiteHelper.COLUMN_ADDRESS));
+			    System.out.println("state:" + cursor.getColumnIndex(MySQLiteHelper.COLUMN_STATE));
+			    System.out.println("zip:" + cursor.getColumnIndex(MySQLiteHelper.COLUMN_ZIP));
+			    System.out.println("allegies:" + cursor.getColumnIndex(MySQLiteHelper.COLUMN_ALLERGIES));
+			    System.out.println("dodPref:" + cursor.getColumnIndex(MySQLiteHelper.COLUMN_DOG_PET_PREF));
+			    System.out.println("catPref:" + cursor.getColumnIndex(MySQLiteHelper.COLUMN_CAT_PET_PREF));
+			    System.out.println("famSize:" + cursor.getColumnIndex(MySQLiteHelper.COLUMN_FAMSIZE));
+			   
 			    return student;
 			  }
 

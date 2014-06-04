@@ -15,5 +15,6 @@ public class Student {
 	public int zipCode;
 	public String allergies;
 	public boolean dogPet;
-	public boolean catPet;	
+	public boolean catPet;
+	public int famSize;
 }
