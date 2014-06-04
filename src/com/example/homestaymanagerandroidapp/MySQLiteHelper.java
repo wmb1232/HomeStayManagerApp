@@ -33,8 +33,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 	public static final String COLUMN_FAMILYID = "FamilyID";
 	
 	
-	private static final String DATABASE_NAME = "HomeStay.db";
-	private static final int DATABASE_VERSION = 1;
+	private static final String DATABASE_NAME = "HomeStay1.db";
+	private static final int DATABASE_VERSION = 2;
 	
 	//Database creation sql statement
 	private static final String DATABASE_CREATE_STUDENT = "create table "
@@ -43,23 +43,26 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 		      + " text not null, " + COLUMN_LNAME + " text not null, " + 
 		      COLUMN_GENDER + " text, "  + COLUMN_PHONE + " text not null, " +  
 		      COLUMN_EMAIL + " text, " + COLUMN_START_DATE + " text, "
-		      + COLUMN_END_DATE + " text, " + COLUMN_ADDRESS + " text, " +
-		      COLUMN_ZIP + " text, " + COLUMN_STATE + " text, " + COLUMN_ALLERGIES + 
+		      + COLUMN_END_DATE + " text, " + COLUMN_ADDRESS + " text, " + COLUMN_STATE 
+		      + " text, " + COLUMN_ZIP + " text, "  + COLUMN_ALLERGIES + 
 		      " integer, " + COLUMN_DOG_PET_PREF + " integer, " + COLUMN_CAT_PET_PREF + 
-		      " integer" + ");" ;
+		      " integer, " + COLUMN_FAMSIZE + " integer " + ");" ;
 	
 	private static final String DATABASE_CREATE_FAMILIES = "create table "
 		      + TABLE_FAMILIES + "(" + COLUMN_ID
 		      + " integer primary key autoincrement, " + COLUMN_FNAME
-		      + " text not null, " + COLUMN_LNAME + " text not null, " + 
+		      + " integer not null, " + COLUMN_LNAME + " text not null, " + 
 		      COLUMN_GENDER + " text, "  + COLUMN_PHONE + " text not null, " +  
 		      COLUMN_EMAIL + " text, " + COLUMN_START_DATE + " text, "
-		      + COLUMN_END_DATE + " text, " + COLUMN_ADDRESS + " text, " +
-		      COLUMN_ZIP + " text, " + COLUMN_STATE + " text, " + COLUMN_ALLERGIES + 
+		      + COLUMN_END_DATE + " text, " + COLUMN_ADDRESS + " text, " + 
+		      COLUMN_STATE + " text, " + COLUMN_ZIP + " text, " + COLUMN_ALLERGIES + 
 		      " integer, " + COLUMN_DOG_PET_PREF + " integer, " + COLUMN_CAT_PET_PREF + 
-		      " integer" + ");" ;
+		      " integer, " + COLUMN_FAMSIZE + " integer " + ");" ;
 	
-	private static final String DATABASE_CREATE_WIZMATCH = "create table" + TABLE_WIZARD_MATCH +
+	private static final String DATABASE_CREATE_WIZMATCH = "create table " + TABLE_WIZARD_MATCH +
+			"(" + COLUMN_STUDENTID + " integer primary key , " + COLUMN_FAMILYID + " integer not null); ";
+	
+	private static final String DATABASE_CREATE_FAVORITES = "create table " + TABLE_FAVORITES +
 			"(" + COLUMN_STUDENTID + " integer primary key , " + COLUMN_FAMILYID + " integer not null); ";
 	
 	public MySQLiteHelper(Context context) {
@@ -70,7 +73,8 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 	  public void onCreate(SQLiteDatabase database) {
 	    database.execSQL(DATABASE_CREATE_STUDENT);
 	    database.execSQL(DATABASE_CREATE_FAMILIES);
-	    //database.execSQL(DATABASE_CREATE_WIZMATCH);
+	    database.execSQL(DATABASE_CREATE_WIZMATCH);
+	    database.execSQL(DATABASE_CREATE_FAVORITES);
 	    
 	  }
 	
@@ -80,6 +84,9 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 	        "Upgrading database from version " + oldVersion + " to "
 	            + newVersion + ", which will destroy all old data");
 	    db.execSQL("DROP TABLE IF EXISTS " + TABLE_STUDENTS);
+	    db.execSQL("DROP TABLE IF EXISTS " + TABLE_FAMILIES);
+	    db.execSQL("DROP TABLE IF EXISTS " + TABLE_WIZARD_MATCH);
+	    db.execSQL("DROP TABLE IF EXISTS " + TABLE_FAVORITES);
 	    onCreate(db);
 	  }
 

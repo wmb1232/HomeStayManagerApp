@@ -37,7 +37,8 @@ public class EmailLogin extends Activity {
 
        final Button button = (Button) findViewById(R.id.btnSubmit);
        button.setOnClickListener(new View.OnClickListener() {
-           public void onClick(View v) {
+           
+    	   public void onClick(View v) {
         	   System.out.println("ENTER BUTTON");
             final EditText firstName = (EditText) findViewById(R.id.editText1);
        	    final String fname = firstName.getText().toString();
@@ -68,42 +69,43 @@ public class EmailLogin extends Activity {
     	   final String allergies = "NONE";
     	   
     	   
-    	   System.out.println("**************************");
-    	   System.out.println(fname);
-    	   System.out.println(lname);
-    	   System.out.println(email);
-    	   System.out.println(gender);
-    	   System.out.println(phone);
-    	   System.out.println(startDate);
-    	   System.out.println(endDate);
-    	   System.out.println(mail);
-    	   System.out.println(state);
-    	   System.out.println(zip);
-    	   System.out.println(allergies);
-    	   System.out.println(dogPet);
-    	   System.out.println(catPet);
-    	   System.out.println("**************************");
+//    	   System.out.println("**************************");
+//    	   System.out.println(fname);
+//    	   System.out.println(lname);
+//    	   System.out.println(email);
+//    	   System.out.println(gender);
+//    	   System.out.println(phone);
+//    	   System.out.println(startDate);
+//    	   System.out.println(endDate);
+//    	   System.out.println(mail);
+//    	   System.out.println(state);
+//    	   System.out.println(zip);
+//    	   System.out.println(allergies);
+//    	   System.out.println(dogPet);
+//    	   System.out.println(catPet);
+//    	   System.out.println("**************************");
 
-        	   Student st;
-        	 st = datasource.createStudent(fname, lname, email, gender, 
-        		   					phone, startDate, endDate, mail, 
-        			   					state, zip, allergies, dogPet, catPet);
+   
+//    	   	Student st;
+//        	st = datasource.createStudent(fname, lname, email, gender, 
+//        		   					phone, startDate, endDate, mail, 
+//        			   					state, zip, allergies, dogPet, catPet);
         	 
      	    ArrayList<Student> values = new ArrayList<Student>();
 
      	    values = datasource.getAllStudents();
      	    
-     	        	System.out.println("************contains**************");
-     	        	System.out.println(values.contains(st.firstName));
-     	        	System.out.println("*************endcontains*************");
-     	    		
+//     	        	System.out.println("************contains**************");
+//     	        	System.out.println(values.contains(st.firstName));
+//     	        	System.out.println("*************endcontains*************");
+//     	    		
      	        	System.out.println("***********get**************");
      	        	System.out.println(values.get(0).firstName);
      	        	System.out.println("*************endget*************");
      	        	
      	    //values.contains(st.firstName);
  
-        	 System.out.println("EXIT BUTTON");
+//        	 System.out.println("EXIT BUTTON");
            }
        });
        
@@ -158,6 +160,7 @@ public class EmailLogin extends Activity {
 			return rootView;
 		}
 	}
+	
 	public void goMainMenu(View v)
 	{
 		startActivity(new Intent(EmailLogin.this,MainMenu.class));
