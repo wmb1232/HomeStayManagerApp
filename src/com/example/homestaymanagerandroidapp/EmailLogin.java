@@ -10,6 +10,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.Toast;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -24,8 +26,13 @@ import android.view.ViewGroup;
 import android.os.Build;
 
 public class EmailLogin extends Activity {
-	private HomeStayDataSource datasource;
-
+	public HomeStayDataSource datasource;
+	public ArrayList<Student> values;
+	public ArrayList<Family> valuesFam;
+	public boolean isFamily = false;
+	public boolean isStudent = false;
+	public boolean studentExist = false;
+	public boolean familyExist = false;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -33,14 +40,14 @@ public class EmailLogin extends Activity {
 
 	    datasource = new HomeStayDataSource(this);
 	    datasource.open();
-	  
-
+	   
        final Button button = (Button) findViewById(R.id.btnSubmit);
        button.setOnClickListener(new View.OnClickListener() {
            
     	   public void onClick(View v) {
+    		     
         	   System.out.println("ENTER BUTTON");
-            final EditText firstName = (EditText) findViewById(R.id.editText1);
+            final EditText firstName = (EditText) findViewById(R.id.firstName);
        	    final String fname = firstName.getText().toString();
        	    
        	    final EditText lastName = (EditText) findViewById(R.id.editText2);
@@ -61,55 +68,99 @@ public class EmailLogin extends Activity {
        	    final EditText eDate = (EditText) findViewById(R.id.editText7);
        	    final String endDate = eDate.getText().toString();
        	    
-     	   final String gender = "Male";
-    	   final String state = "CA";
-    	   final int zip = 5121;
-    	   final int dogPet = 0;
-    	   final int catPet = 1;
-    	   final String allergies = "NONE";
-    	   
-    	   
-//    	   System.out.println("**************************");
-//    	   System.out.println(fname);
-//    	   System.out.println(lname);
-//    	   System.out.println(email);
-//    	   System.out.println(gender);
-//    	   System.out.println(phone);
-//    	   System.out.println(startDate);
-//    	   System.out.println(endDate);
-//    	   System.out.println(mail);
-//    	   System.out.println(state);
-//    	   System.out.println(zip);
-//    	   System.out.println(allergies);
-//    	   System.out.println(dogPet);
-//    	   System.out.println(catPet);
-//    	   System.out.println("**************************");
-
+     	    final String gender = "Male";
+    	    final String state = "CA";
+    	    final int zip = 5121;
+    	    final int dogPet = 0;
+    	    final int catPet = 1;
+    	    final String allergies = "NONE";
+    	              
+            values = new ArrayList<Student>();
+            values = datasource.getAllStudents();  
+            valuesFam = new ArrayList<Family>();	
+            valuesFam = datasource.getAllFamilies();
+       	     	
    
-//    	   	Student st;
-//        	st = datasource.createStudent(fname, lname, email, gender, 
-//        		   					phone, startDate, endDate, mail, 
-//        			   					state, zip, allergies, dogPet, catPet);
-        	 
-     	    ArrayList<Student> values = new ArrayList<Student>();
-
-     	    values = datasource.getAllStudents();
-     	    
-//     	        	System.out.println("************contains**************");
-//     	        	System.out.println(values.contains(st.firstName));
-//     	        	System.out.println("*************endcontains*************");
-//     	    		
-     	        	System.out.println("***********get**************");
-     	        	System.out.println(values.get(0).firstName);
-     	        	System.out.println("*************endget*************");
-     	        	
-     	    //values.contains(st.firstName);
+   	    	Student st;
+   	    	Family fm;
+   	    	
+   	    	if(isStudent == true) {
+   	    		
+   	        for(int i = 0; i < values.size(); i++)	{
+   	      	  if(fname.equals(values.get(i).firstName)) {
+			     Toast.makeText(getApplicationContext(), 
+                         "Account associated with this email already exist", Toast.LENGTH_LONG).show();
+			     studentExist = true;
+   	      	 }
+            }
+   	        if(studentExist == false) {
  
-//        	 System.out.println("EXIT BUTTON");
+     	 
+            st = datasource.createStudent(fname, lname, email, gender, 
+ 					phone, startDate, endDate, mail, 
+	   					state, zip, allergies, dogPet, catPet, 2);
+   	        }
+     	    
+   	     if(fname != null && studentExist == false)
+   	    	startActivity(new Intent(EmailLogin.this,MainMenu.class));
+   	     
+   	        studentExist = false;
+     	 	        	
            }
+    	   else if(isFamily == true){ ///////////////////////////////////////////////////////
+  	    		
+      	        for(int i = 0; i < valuesFam.size(); i++)	{
+      	        	System.out.println(valuesFam.get(i).firstName);
+      	      	  if(fname.equals(valuesFam.get(i).firstName)) {
+   			     Toast.makeText(getApplicationContext(), 
+                            "Account associated with this email already exist", Toast.LENGTH_LONG).show();
+   			  familyExist = true;
+      	      	 }
+               }
+      	        if(familyExist == false) {
+    
+        	 
+               fm = datasource.createFamily(fname, lname, email, gender, 
+    					phone, startDate, endDate, mail, 
+   	   					state, zip, allergies, dogPet, catPet, 2);
+      	        }
+        	    
+      	     if(fname != null && familyExist == false)
+      	    	startActivity(new Intent(EmailLogin.this,MainMenu.class));
+      	     
+      	      familyExist = false;
+        	 	        	  		   
+    		   
+    	   }
+    	   
+    	   }
        });
+      
        
 	}
+	
+	public void studentOrFamily(View view) {
+	    // Is the button now checked?
+	    boolean checked = ((RadioButton) view).isChecked();
+	 
+	    // Check which radio button was clicked
+	    switch(view.getId()) {
+	        case R.id.radio0:
+	            if (checked){
+	               isFamily = true;
+	               System.out.print("FAMILY");
+	            }
+	            break;
+	        case R.id.radio2:
+	            if (checked){
+	               isStudent = true;
+	               System.out.print("Student");
+	            }
+	            break;
+	    }
+	}
+	
+	
 	
 	  @Override
 	  protected void onResume() {
@@ -166,5 +217,11 @@ public class EmailLogin extends Activity {
 		startActivity(new Intent(EmailLogin.this,MainMenu.class));
 		
 	}
+
+	public ArrayList<Student> getValues() {
+		// TODO Auto-generated method stub
+		return values;
+	}
+
 
 }

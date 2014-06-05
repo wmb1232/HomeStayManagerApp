@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 
+
+
 import com.facebook.Session;
 import com.facebook.SessionState;
 
@@ -26,6 +28,7 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
       //  setupLoginButton(View); 
+        
 
         if (savedInstanceState == null) {
         	mainFragment = new MainFragment();
@@ -96,20 +99,11 @@ public class MainActivity extends FragmentActivity {
     public void setupLoginButton(View v)
     { 
     	startActivity(new Intent(MainActivity.this,EmailLogin.class));
-    	//piece of code below was not going to OnClick
-    	/* 
-    	LayoutInflater l = getLayoutInflater();
-    	View testView = l.inflate(R.layout.activity_main,null);
-    	Button loginButton = (Button) testView.findViewById(R.id.emailLoginButton);
-    	loginButton.setOnClickListener(new View.OnClickListener() {
-			//@Override
-			public void onClick(View argo) {
-				System.out.println("hello my people");
-				Log.i("DemoButtonApp","You pressed the button");
-				//Toast.makeText(MainActivity.this, "YESSS", Toast.LENGTH_LONG)
-				//.show();
-			}
-		});*/
+
+    }
+    public void LoginButton(View v) {
+    	startActivity(new Intent(MainActivity.this,Login.class));
+
     }
 
 }

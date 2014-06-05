@@ -10,10 +10,19 @@
     tools:context="com.example.homestaymanagerandroidapp.MainMenu" >
 
     <Button
-        android:id="@+id/searchWizard"
+        android:id="@+id/button_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:text="Manual Search" />
+
+    <Button
+        android:id="@+id/searchWizard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_login"
         android:layout_centerHorizontal="true"
         android:clickable="true"
         android:text="Search Wizard" />
@@ -28,21 +37,33 @@
         android:text="View/Edit Profile" />
 
     <Button
-        android:id="@+id/manualSearch"
+        android:id="@+id/favorites"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/editProfile"
         android:layout_centerHorizontal="true"
         android:clickable="true"
-        android:text="Manual Search" />
+        android:text="View/Edit Favorites" />
 
     <Button
-        android:id="@+id/favorites"
+        android:id="@+id/showFamilies"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/manualSearch"
+        android:layout_below="@+id/favorites"
         android:layout_centerHorizontal="true"
         android:clickable="true"
-        android:text="View/Edit Favorites" />
+        android:text="Show Families" />
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/showFamilies"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/showFamilies"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="113dp" >
+
+    </ListView>
 
 </RelativeLayout>

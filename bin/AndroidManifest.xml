@@ -12,8 +12,8 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
+        android:icon="@drawable/mapworld"
+        android:label="Home Stay Manager"
         android:theme="@style/AppTheme" >
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -39,6 +39,14 @@
         <activity
             android:name="com.example.homestaymanagerandroidapp.MainMenu"
             android:label="@string/title_activity_main_menu" >
+        </activity>
+        <activity
+            android:name="com.example.homestaymanagerandroidapp.ViewFam"
+            android:label="@string/title_activity_view_fam" >
+        </activity>
+        <activity
+            android:name="com.example.homestaymanagerandroidapp.Login"
+            android:label="@string/title_activity_login" >
         </activity>
     </application>
 
