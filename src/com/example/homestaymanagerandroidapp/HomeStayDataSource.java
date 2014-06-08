@@ -199,7 +199,10 @@ public class HomeStayDataSource {
 			{
 				if(preferences[0])
 				{
-					
+					if(fam.gender.equals(student.gender))
+					{
+						selectedFamilies.add(fam);
+					}
 				}
 			}
 			
