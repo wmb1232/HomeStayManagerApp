@@ -9,8 +9,8 @@ public class Family {
 	public String emailAddress;
 	public String gender;
 	public String phone;
-	public Date startDate;
-	public Date endDate;
+	public String startDate;
+	public String endDate;
 	public String address;
 	public String state;
 	public int zipCode;

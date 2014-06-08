@@ -2,8 +2,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/uni"
+    android:background="@drawable/room"
     android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/Button01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:text="Login" 
+        android:onClick="LoginButton"/>
 
     <Button
         android:id = "@+id/emailLoginButton"
@@ -11,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop= "30dp"
-        android:text= "Login with Email"
+        android:text= "Register with Email"
         android:onClick="setupLoginButton"
         />
     <com.facebook.widget.LoginButton

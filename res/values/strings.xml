@@ -7,5 +7,7 @@
     <string name="app_id">619295488161535</string>
     <string name="title_activity_email_login">EmailLogin</string>
     <string name="title_activity_main_menu">MainMenu</string>
+    <string name="title_activity_view_fam">ViewFam</string>
+    <string name="title_activity_login">Login</string>
 
 </resources>

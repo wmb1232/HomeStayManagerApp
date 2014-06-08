@@ -16,19 +16,20 @@ import android.widget.Toast;
 
 
 
+
+
+
 import com.facebook.Session;
 import com.facebook.SessionState;
+import com.facebook.android.Facebook;
 
 public class MainActivity extends FragmentActivity {
 
-	
-	
 	private MainFragment mainFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-      //  setupLoginButton(View); 
-
+        super.onCreate(savedInstanceState); 
+      
         if (savedInstanceState == null) {
         	mainFragment = new MainFragment();
             getSupportFragmentManager()
@@ -40,13 +41,13 @@ public class MainActivity extends FragmentActivity {
             mainFragment = (MainFragment) getSupportFragmentManager()
             .findFragmentById(android.R.id.content);
         }
-       /* // start Facebook Login
+      // start Facebook Login
        Session.openActiveSession(this, true, new Session.StatusCallback() {
         // callback when session changes state
               @Override
               public void call(Session session, SessionState state, Exception exception) {
               }
-        });*/;
+        });
         
        
     }
@@ -56,8 +57,6 @@ public class MainActivity extends FragmentActivity {
       Session.getActiveSession().onActivityResult(this, requestCode, resultCode, data);
     }
     
-    
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         
@@ -100,6 +99,11 @@ public class MainActivity extends FragmentActivity {
     	startActivity(new Intent(MainActivity.this,EmailLogin.class));
 
     }
+<<<<<<< HEAD
+    public void LoginButton(View v) {
+    	startActivity(new Intent(MainActivity.this,Login.class));
+
+=======
     public void onRadioButtonClicked(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
@@ -115,6 +119,10 @@ public class MainActivity extends FragmentActivity {
                     // put code here
                 break;
         }
+>>>>>>> refs/heads/master
     }
 
 }
+
+
+
