@@ -251,7 +251,7 @@
             android:text="Student" />
 
         <RadioButton
-            android:id="@+id/radio0"
+            android:id="@+id/radio_student"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/radio2"

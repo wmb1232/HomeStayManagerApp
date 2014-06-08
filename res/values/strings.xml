@@ -9,5 +9,6 @@
     <string name="title_activity_main_menu">MainMenu</string>
     <string name="title_activity_view_fam">ViewFam</string>
     <string name="title_activity_login">Login</string>
+    <string name="title_activity_family_main_menu">FamilyMainMenu</string>
 
 </resources>

@@ -8,7 +8,7 @@
     android:gravity="center_vertical"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    tools:context="com.example.homestaymanagerandroidapp.MainMenu" >
+    tools:context="com.example.homestaymanagerandroidapp.StudentMainMenu" >
 
     <TextView
         android:id="@+id/text_paswd"

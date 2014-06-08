@@ -8,7 +8,7 @@
     android:gravity="top"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    tools:context="com.example.homestaymanagerandroidapp.MainMenu" >
+    tools:context="com.example.homestaymanagerandroidapp.StudentMainMenu" >
 
     <TextView
         android:id="@+id/text_paswd"
@@ -51,34 +51,48 @@
         <requestFocus />
     </EditText>
 
-      <Button
-          android:id="@+id/button_login"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_alignLeft="@+id/authButton"
-          android:layout_alignRight="@+id/authButton"
-          android:layout_below="@+id/editText2"
-          android:layout_marginTop="26dp"
-          android:clickable="true"
-          android:onClick="goMainMenu"
-          android:text="LogIn" />
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText2"
+        android:layout_alignRight="@+id/editText2"
+        android:layout_below="@+id/editText2"
+        android:layout_marginTop="26dp"
+        android:clickable="true"
+        android:onClick="goMainMenu"
+        android:text="LogIn" />
 
-      <com.facebook.widget.LoginButton
-          android:id="@+id/authButton"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_below="@+id/button_login"
-          android:layout_centerHorizontal="true"
-          android:layout_marginTop="26dp" />
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" >
 
-      <Button
-          android:id="@+id/emailLoginButton"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_alignLeft="@+id/authButton"
-          android:layout_below="@+id/authButton"
-          android:layout_marginTop="21dp"
-          android:onClick="setupLoginButton"
-          android:text="Register with Email" />
+        <RadioButton
+            android:id="@+id/radio_student"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:onClick="onRadioButtonClicked"
+            android:text="Student" />
+
+        <RadioButton
+            android:id="@+id/radio_family"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="Family" />
+    </RadioGroup>
+
+    <com.facebook.widget.LoginButton
+        android:id="@+id/authButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioGroup1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp" />
 
 </RelativeLayout>

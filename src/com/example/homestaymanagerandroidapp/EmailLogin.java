@@ -112,7 +112,7 @@ public class EmailLogin extends Activity {
    	        }
      	  // go to main menu if new account created  
    	     if(fname != null && studentExist == false)
-   	    	startActivity(new Intent(EmailLogin.this,MainMenu.class));
+   	    	startActivity(new Intent(EmailLogin.this,StudentMainMenu.class));
    	     
    	        studentExist = false;
      	 	        	
@@ -136,7 +136,7 @@ public class EmailLogin extends Activity {
       	        }
         	    
       	     if(fname != null && familyExist == false)
-      	    	startActivity(new Intent(EmailLogin.this,MainMenu.class));
+      	    	startActivity(new Intent(EmailLogin.this,StudentMainMenu.class));
       	     
       	      familyExist = false;
         	 	        	  		   
@@ -155,7 +155,7 @@ public class EmailLogin extends Activity {
 	 
 	    // Check which radio button was clicked
 	    switch(view.getId()) {
-	        case R.id.radio0:
+	        case R.id.radio_student:
 	            if (checked){
 	               isFamily = true;
 	               System.out.print("FAMILY");
@@ -224,7 +224,7 @@ public class EmailLogin extends Activity {
 	
 	public void goMainMenu(View v)
 	{
-		startActivity(new Intent(EmailLogin.this,MainMenu.class));
+		startActivity(new Intent(EmailLogin.this,StudentMainMenu.class));
 		
 	}
 

@@ -37,7 +37,7 @@
             android:label="@string/title_activity_email_login" >
         </activity>
         <activity
-            android:name="com.example.homestaymanagerandroidapp.MainMenu"
+            android:name="com.example.homestaymanagerandroidapp.StudentMainMenu"
             android:label="@string/title_activity_main_menu" >
         </activity>
         <activity
@@ -47,6 +47,10 @@
         <activity
             android:name="com.example.homestaymanagerandroidapp.Login"
             android:label="@string/title_activity_login" >
+        </activity>
+        <activity
+            android:name="com.example.homestaymanagerandroidapp.FamilyMainMenu"
+            android:label="@string/title_activity_family_main_menu" >
         </activity>
     </application>
 

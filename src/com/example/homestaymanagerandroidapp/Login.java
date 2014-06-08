@@ -49,7 +49,7 @@ public class Login extends ActionBarActivity {
 	}
 	
 	public void mainMenu(View v) {
-		startActivity(new Intent(Login.this,MainMenu.class));
+		startActivity(new Intent(Login.this,StudentMainMenu.class));
 	}
 
 	/**

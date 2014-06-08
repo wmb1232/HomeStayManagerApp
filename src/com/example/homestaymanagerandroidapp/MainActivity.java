@@ -9,8 +9,11 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.facebook.Session;
@@ -19,11 +22,15 @@ import com.facebook.android.Facebook;
 
 public class MainActivity extends FragmentActivity {
 
+	private RadioGroup rgOpinion;
+	Global status;
+
+
 	private MainFragment mainFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState); 
-      
+        
         if (savedInstanceState == null) {
         	mainFragment = new MainFragment();
             getSupportFragmentManager()
@@ -87,9 +94,27 @@ public class MainActivity extends FragmentActivity {
             return rootView;
         }
     }
+    
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+        
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radio_student:
+                if (checked)
+                	Global.EsEstudiante = true;
+                break;
+            case R.id.radio_family:
+                if (checked)
+                	Global.EsFamilia = true;
+                break;
+        }
+    }
+    
 	public void goMainMenu(View v)
 	{
-		startActivity(new Intent(MainActivity.this,MainMenu.class));
+		startActivity(new Intent(MainActivity.this,StudentMainMenu.class));
 		
 	}
     
@@ -102,6 +127,9 @@ public class MainActivity extends FragmentActivity {
     	startActivity(new Intent(MainActivity.this,Login.class));
 
     }
+    
+
+
 
 }
 

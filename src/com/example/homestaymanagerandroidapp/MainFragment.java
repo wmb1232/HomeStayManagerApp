@@ -1,6 +1,9 @@
 package com.example.homestaymanagerandroidapp;
 
 import java.util.ArrayList;
+
+import com.example.homestaymanagerandroidapp.R;
+
 import java.util.Arrays;
 
 import android.content.Intent;
@@ -23,16 +26,16 @@ import com.facebook.widget.LoginButton;
 
 public class MainFragment extends Fragment {
 	
-	Student test;
 	EmailLogin el;
-	
+	//Global gb;
+
     public   HomeStayDataSource datasource;
 	public ArrayList<Student> values;
 	public ArrayList<Family> valuesFam;
 	public boolean isFamily = false;
 	public boolean isStudent = false;
 	public boolean studentExist = false;
-	public boolean familyExist = false;
+	
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, 
@@ -48,40 +51,55 @@ public class MainFragment extends Fragment {
 	  
 	}
 	private static final String TAG = "MainFragment";
-	
+	public MainActivity StudentOrFamily = new MainActivity() ;
 	private void onSessionStateChange(Session session, SessionState state, Exception exception) {
-
+		System.out.print("NO MAMESSSSSSSSSSSSS");
 	    if (state.isOpened()) {
 	        Log.i(TAG, "Logged in...");
-	        Request.newMeRequest(session, new Request.GraphUserCallback() {
-				
+	        
+	        Request.newMeRequest(session, new Request.GraphUserCallback() {    		
 				@Override
-				public void onCompleted(GraphUser user, Response response) {
-					System.out.println(user.getName());
-					System.out.println(user.getName());
-					System.out.println(user.getName());
-					System.out.println(user.getName());
-					System.out.println(user.getName());
-					System.out.println(user.getName());				
-					test = new Student();
-					test.firstName = user.getFirstName();
-					test.lastName = user.getLastName();
-					test.emailAddress = user.getProperty("email").toString();		
-					
+			public void onCompleted(GraphUser user, Response response) {
 ///********************* ADD FAMILY OR STUDENT TO DATA BASE *********************************
+					
+			 if(Global.EsEstudiante == true) {
+				  System.out.print("NO MAMEZZZZ");
+				//  System.out.print( StudentOrFamily.EsFamilia);
+				  System.out.print("NO MAMEZZZZ");
+		            values = new ArrayList<Student>();	
+		            values = datasource.getAllStudents();
+		            Student st;
+		            st = datasource.createStudent(user.getFirstName(), user.getLastName(), 
+		            		user.getProperty("email").toString(), "gender", 
+	    					"phone", "startDate", "endDate", "mail", 
+	   	   					"state", 95442, "allergies", 2, 2,2);
+				  
+				  
+			     startActivity(new Intent(getActivity(),StudentMainMenu.class));
+			 }
+			 else if(Global.EsFamilia == true){
+					  	
 		            valuesFam = new ArrayList<Family>();	
 		            valuesFam = datasource.getAllFamilies();
 		            Family fm;
-		            fm = datasource.createFamily(user.getFirstName(), user.getLastName(), user.getProperty("email").toString(), "gender", 
+		            fm = datasource.createFamily(user.getFirstName(), user.getLastName(), 
+		            		user.getProperty("email").toString(), "gender", 
 	    					"phone", "startDate", "endDate", "mail", 
 	   	   					"state", 95442, "allergies", 2, 2, 2);
+		            
+		            startActivity(new Intent(getActivity(),FamilyMainMenu.class));
+		  }
 
 ///********************* ADD FAMILY OR STUDENT TO DATA BASE *********************************
-				}
+			}
 			}).executeAsync();
-	        startActivity(new Intent(getActivity(),MainMenu.class));
+	        
+	      
+	        
 	    } else if (state.isClosed()) {
 	        Log.i(TAG, "Logged out...");
+	        Global.EsEstudiante = false;
+	       Global.EsFamilia = false;
 	    }
 	}
 	
@@ -100,8 +118,7 @@ public class MainFragment extends Fragment {
 	    
         datasource = new HomeStayDataSource(getActivity());
         datasource.open();
-	    
-	   
+	  
 	}
 	
 	@Override
