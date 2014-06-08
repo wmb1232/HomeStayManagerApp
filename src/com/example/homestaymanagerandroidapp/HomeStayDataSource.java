@@ -112,6 +112,7 @@ public class HomeStayDataSource {
 		        + " = " + email , null);
 		}
 		
+<<<<<<< HEAD
 	/**	public Student getStudent(String email){
 			System.out.println("Getting Student with email: " + email);
 			
@@ -122,6 +123,17 @@ public class HomeStayDataSource {
 				    allColumns, null, null, null, null, null);
 		}
 */		  
+=======
+//		public Student getStudent(String email){
+//			System.out.println("Getting Student with email: " + email);
+//			
+//			Cursor cursor = database.query(MySQLiteHelper.TABLE_STUDENTS, allColumns , MySQLiteHelper.COLUMN_EMAIL + " = " + email,
+//		            new String[] { String.valueOf(id) }, null, null, null, null);
+//			
+//			Cursor cursor = database.query(MySQLiteHelper.TABLE_STUDENTS,
+//				    allColumns, null, null, null, null, null);
+//		}
+>>>>>>> refs/heads/master
 		  
 		  
 	  public ArrayList<Student> getAllStudents() {

@@ -69,6 +69,7 @@ public class EmailLogin extends Activity {
        	    final EditText eDate = (EditText) findViewById(R.id.editText7);
        	    final String endDate = eDate.getText().toString();
        	    
+<<<<<<< HEAD
      	    final String gender = "Male";
     	    final String state = "CA";
     	    final int zip = 5121;
@@ -81,7 +82,17 @@ public class EmailLogin extends Activity {
             valuesFam = new ArrayList<Family>();	
             valuesFam = datasource.getAllFamilies();
        	     	
+=======
+     	   final String gender = "Male";
+    	   final String state = "CA";
+    	   final int zip = 5121;
+    	   final int dogPet = 0;
+    	   final int catPet = 1;
+    	   final String allergies = "NONE";
+
+>>>>>>> refs/heads/master
    
+<<<<<<< HEAD
    	    	Student st;
    	    	Family fm;
    	    	
@@ -95,6 +106,26 @@ public class EmailLogin extends Activity {
    	      	 }
             }
    	        if(studentExist == false) {
+=======
+    	   	Student st;
+          	st = datasource.createStudent(fname, lname, email, gender, 
+        		   					phone, startDate, endDate, mail, 
+        			   					state, zip, allergies, dogPet, catPet,2);
+        	 
+     	    ArrayList<Student> values = new ArrayList<Student>();
+
+     	    values = datasource.getAllStudents();
+     	    
+//     	        	System.out.println("************contains**************");
+//     	        	System.out.println(values.contains(st.firstName));
+//     	        	System.out.println("*************endcontains*************");
+//     	    		
+     	        	System.out.println("***********get**************");
+     	        	System.out.println(values.get(0).firstName);
+     	        	System.out.println("*************endget*************");
+     	        	
+     	    //values.contains(st.firstName);
+>>>>>>> refs/heads/master
  
      	 
             st = datasource.createStudent(fname, lname, email, gender, 
