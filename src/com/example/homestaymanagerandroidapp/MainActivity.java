@@ -11,13 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.Toast;
-
-
-
-
-
 
 import com.facebook.Session;
 import com.facebook.SessionState;
@@ -47,7 +41,8 @@ public class MainActivity extends FragmentActivity {
               @Override
               public void call(Session session, SessionState state, Exception exception) {
               }
-        });   
+        });
+        
        
     }
     @Override
@@ -92,16 +87,22 @@ public class MainActivity extends FragmentActivity {
             return rootView;
         }
     }
+	public void goMainMenu(View v)
+	{
+		startActivity(new Intent(MainActivity.this,MainMenu.class));
+		
+	}
     
     public void setupLoginButton(View v)
     { 
     	startActivity(new Intent(MainActivity.this,EmailLogin.class));
 
     }
-
     public void LoginButton(View v) {
     	startActivity(new Intent(MainActivity.this,Login.class));
+
     }
+
 }
 
 

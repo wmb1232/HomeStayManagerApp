@@ -1,34 +1,84 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:id="@+id/container"
+    android:layout_width="fill_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/room"
-    android:orientation="vertical" >
+    android:layout_gravity="center"
+    android:background="@drawable/sky2"
+    android:gravity="top"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    tools:context="com.example.homestaymanagerandroidapp.MainMenu" >
 
-    <Button
-        android:id="@+id/Button01"
+    <TextView
+        android:id="@+id/text_paswd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        android:text="Login" 
-        android:onClick="LoginButton"/>
+        android:layout_alignLeft="@+id/textUsername"
+        android:layout_below="@+id/editText1"
+        android:layout_marginTop="27dp"
+        android:text="Password:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <Button
-        android:id = "@+id/emailLoginButton"
+    <TextView
+        android:id="@+id/textUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop= "30dp"
-        android:text= "Register with Email"
-        android:onClick="setupLoginButton"
-        />
-    <com.facebook.widget.LoginButton
-        android:id="@+id/authButton"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:text="Username:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/editText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
-        />
+        android:layout_below="@+id/textUsername"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textPersonName" />
 
-</LinearLayout>
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/editText1"
+        android:layout_below="@+id/text_paswd"
+        android:ems="10"
+        android:inputType="textPassword" >
+
+        <requestFocus />
+    </EditText>
+
+      <Button
+          android:id="@+id/button_login"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_alignLeft="@+id/authButton"
+          android:layout_alignRight="@+id/authButton"
+          android:layout_below="@+id/editText2"
+          android:layout_marginTop="26dp"
+          android:clickable="true"
+          android:onClick="goMainMenu"
+          android:text="LogIn" />
+
+      <com.facebook.widget.LoginButton
+          android:id="@+id/authButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_below="@+id/button_login"
+          android:layout_centerHorizontal="true"
+          android:layout_marginTop="26dp" />
+
+      <Button
+          android:id="@+id/emailLoginButton"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignLeft="@+id/authButton"
+          android:layout_below="@+id/authButton"
+          android:layout_marginTop="21dp"
+          android:onClick="setupLoginButton"
+          android:text="Register with Email" />
+
+</RelativeLayout>
