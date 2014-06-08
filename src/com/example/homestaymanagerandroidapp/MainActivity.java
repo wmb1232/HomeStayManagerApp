@@ -47,8 +47,7 @@ public class MainActivity extends FragmentActivity {
               @Override
               public void call(Session session, SessionState state, Exception exception) {
               }
-        });
-        
+        });   
        
     }
     @Override
@@ -99,29 +98,10 @@ public class MainActivity extends FragmentActivity {
     	startActivity(new Intent(MainActivity.this,EmailLogin.class));
 
     }
-<<<<<<< HEAD
+
     public void LoginButton(View v) {
     	startActivity(new Intent(MainActivity.this,Login.class));
-
-=======
-    public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
-        boolean checked = ((RadioButton) view).isChecked();
-        
-        // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.radio_family:
-                if (checked)
-                    // put code here
-                break;
-            case R.id.radio_student:
-                if (checked)
-                    // put code here
-                break;
-        }
->>>>>>> refs/heads/master
     }
-
 }
 
 
