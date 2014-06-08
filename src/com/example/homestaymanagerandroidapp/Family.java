@@ -19,6 +19,7 @@ public class Family {
 	public boolean catPet;
 	int famSize;
 	boolean smoke;
+	String password;
 	double wizzardScore;
 	
 	Family()
@@ -27,7 +28,7 @@ public class Family {
 	}
 	
 	Family(int id, String fn, String ln, String email, String gender, String ph, String sd, String ed, String add, String st,
-			int zip, String alle, int dp, int cp, int famSi, int smoke )
+			int zip, String alle, int dp, int cp, int famSi, int smoke, String pw )
 	{
 		_id = id;
 		firstName = fn;
@@ -66,6 +67,7 @@ public class Family {
 		{
 			this.smoke = true;
 		}
+		password = pw;
 	}
 
 }

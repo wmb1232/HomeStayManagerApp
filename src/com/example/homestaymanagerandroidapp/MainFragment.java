@@ -70,7 +70,7 @@ public class MainFragment extends Fragment {
 		            st = datasource.createStudent(user.getFirstName(), user.getLastName(), 
 		            		user.getProperty("email").toString(), "gender", 
 	    					"phone", "startDate", "endDate", "mail", 
-	   	   					"state", 95442, "allergies", 2, 2,2);
+	   	   					"state", 95442, "allergies", 2, 2,2,1,"password");
 				  
 				  
 			     startActivity(new Intent(getActivity(),StudentMainMenu.class));
@@ -83,7 +83,7 @@ public class MainFragment extends Fragment {
 		            fm = datasource.createFamily(user.getFirstName(), user.getLastName(), 
 		            		user.getProperty("email").toString(), "gender", 
 	    					"phone", "startDate", "endDate", "mail", 
-	   	   					"state", 95442, "allergies", 2, 2, 2);
+	   	   					"state", 95442, "allergies", 2, 2, 2,1,"password");
 		            
 		            startActivity(new Intent(getActivity(),FamilyMainMenu.class));
 		  }

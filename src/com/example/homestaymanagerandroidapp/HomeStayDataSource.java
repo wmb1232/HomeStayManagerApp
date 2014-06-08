@@ -49,7 +49,7 @@ public class HomeStayDataSource {
 
 		public Student createStudent(String fname, String lname, String email, String gender, 
 				  String phone, String sDate, String eDate, String address, String state, 
-				  int zip, String allergies, int dogPet, int catPet, int famSize, int smoke) {
+				  int zip, String allergies, int dogPet, int catPet, int famSize, int smoke, String password) {
 		    
 			ContentValues values = new ContentValues();
 		    values.put(MySQLiteHelper.COLUMN_FNAME, fname);
@@ -67,6 +67,7 @@ public class HomeStayDataSource {
 		    values.put(MySQLiteHelper.COLUMN_CAT_PET_PREF, catPet);
 		    values.put(MySQLiteHelper.COLUMN_FAMSIZE, famSize);
 		    values.put(MySQLiteHelper.COLUMN_SMOKE, smoke);
+		    values.put(MySQLiteHelper.COLUMN_PASSWORD, password);
 		    long insertId = database.insert(MySQLiteHelper.TABLE_STUDENTS, null,
 		        values);
 		    Cursor cursor = database.query(MySQLiteHelper.TABLE_STUDENTS,
@@ -98,7 +99,7 @@ public class HomeStayDataSource {
 		    Student student = new Student(cursor.getInt(0),cursor.getString(1), cursor.getString(2), cursor.getString(3), 
 		    		cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7), cursor.getString(8), 
 		    		cursor.getString(9), cursor.getInt(10), cursor.getString(11), cursor.getInt(12), cursor.getInt(13),
-		    		cursor.getInt(14),cursor.getInt(15));
+		    		cursor.getInt(14),cursor.getInt(15),cursor.getString(16));
 		    
 		    cursor.close();
 		    // return contact
@@ -128,7 +129,7 @@ public class HomeStayDataSource {
 	  
 		public Family createFamily(String fname, String lname, String email, String gender, 
 				  String phone, String sDate, String eDate, String address, String state, 
-				  int zip, String allergies, int dogPet, int catPet, int famSize, int smoke) 
+				  int zip, String allergies, int dogPet, int catPet, int famSize, int smoke, String password) 
 		{
 		    
 			ContentValues values = new ContentValues();
@@ -147,6 +148,7 @@ public class HomeStayDataSource {
 		    values.put(MySQLiteHelper.COLUMN_CAT_PET_PREF, catPet);
 		    values.put(MySQLiteHelper.COLUMN_FAMSIZE, famSize);
 		    values.put(MySQLiteHelper.COLUMN_SMOKE, smoke);
+		    values.put(MySQLiteHelper.COLUMN_PASSWORD, password);
 		    long insertId = database.insert(MySQLiteHelper.TABLE_FAMILIES, null,
 		        values);
 		    Cursor cursor = database.query(MySQLiteHelper.TABLE_FAMILIES,

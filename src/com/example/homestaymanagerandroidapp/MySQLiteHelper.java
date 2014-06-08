@@ -29,6 +29,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 	public static final String COLUMN_CAT_PET_PREF = "catPetPref";
 	public static final String COLUMN_FAMSIZE = "familySize";
 	public static final String COLUMN_SMOKE = "smoke";
+	public static final String COLUMN_PASSWORD = "password";
 	
 	public static final String COLUMN_STUDENTID = "StudentID";
 	public static final String COLUMN_FAMILYID = "FamilyID";
@@ -47,7 +48,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 		      + COLUMN_END_DATE + " text, " + COLUMN_ADDRESS + " text, " + COLUMN_STATE 
 		      + " text, " + COLUMN_ZIP + " text, "  + COLUMN_ALLERGIES + 
 		      " integer, " + COLUMN_DOG_PET_PREF + " integer, " + COLUMN_CAT_PET_PREF + 
-		      " integer, " + COLUMN_FAMSIZE + " integer, " + COLUMN_SMOKE + " integer" +");" ;
+		      " integer, " + COLUMN_FAMSIZE + " integer, " + COLUMN_SMOKE + " integer, " + COLUMN_PASSWORD + "text " +");" ;
 	
 	private static final String DATABASE_CREATE_FAMILIES = "create table "
 		      + TABLE_FAMILIES + "(" + COLUMN_ID
@@ -58,7 +59,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 		      + COLUMN_END_DATE + " text, " + COLUMN_ADDRESS + " text, " + 
 		      COLUMN_STATE + " text, " + COLUMN_ZIP + " text, " + COLUMN_ALLERGIES + 
 		      " integer, " + COLUMN_DOG_PET_PREF + " integer, " + COLUMN_CAT_PET_PREF + 
-		      " integer, " + COLUMN_FAMSIZE + " integer, " + COLUMN_SMOKE + " integer" + ");" ;
+		      " integer, " + COLUMN_FAMSIZE + " integer, " + COLUMN_SMOKE + " integer, " + COLUMN_PASSWORD + "text " + ");" ;
 	
 	private static final String DATABASE_CREATE_WIZMATCH = "create table " + TABLE_WIZARD_MATCH +
 			"(" + COLUMN_STUDENTID + " integer primary key , " + COLUMN_FAMILYID + " integer not null); ";

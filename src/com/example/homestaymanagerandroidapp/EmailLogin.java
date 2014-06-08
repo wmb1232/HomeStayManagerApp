@@ -98,7 +98,7 @@ public class EmailLogin extends Activity {
 
           	st = datasource.createStudent(fname, lname, email, gender, 
         		   					phone, startDate, endDate, mail, 
-        			   					state, zip, allergies, dogPet, catPet,2);
+        			   					state, zip, allergies, dogPet, catPet,2,1,"password");
         	 
      	    ArrayList<Student> values = new ArrayList<Student>();
 
@@ -132,7 +132,7 @@ public class EmailLogin extends Activity {
         	 
                fm = datasource.createFamily(fname, lname, email, gender, 
     					phone, startDate, endDate, mail, 
-   	   					state, zip, allergies, dogPet, catPet, 2);
+   	   					state, zip, allergies, dogPet, catPet, 2,1,"password");
       	        }
         	    
       	     if(fname != null && familyExist == false)

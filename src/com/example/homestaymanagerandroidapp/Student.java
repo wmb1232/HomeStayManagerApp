@@ -18,6 +18,7 @@ public class Student {
 	public boolean catPet;
 	public int famSize;
 	public boolean smoke;
+	public String password;
 	
 	Student()
 	{
@@ -25,7 +26,7 @@ public class Student {
 	}
 	
 	Student(int id, String fn, String ln, String email, String gender, String ph, String sd, String ed, String add, String st,
-			int zip, String alle, int dp, int cp, int famSi, int smoke )
+			int zip, String alle, int dp, int cp, int famSi, int smoke, String pw )
 	{
 		_id = id;
 		firstName = fn;
@@ -64,5 +65,6 @@ public class Student {
 		{
 			this.smoke = true;
 		}
+		password = pw;
 	}
 }
