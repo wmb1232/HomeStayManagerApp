@@ -1,18 +1,27 @@
 package com.example.homestaymanagerandroidapp;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
+import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 import android.os.Build;
 
 public class ViewFam extends ActionBarActivity {
@@ -33,7 +42,7 @@ public class ViewFam extends ActionBarActivity {
 		
 	 	System.out.println("*************endviewFamiliesVIEFAM***************");
     	
-		 ListView  listView = (ListView) findViewById(R.id.listView0);
+		 final ListView  listView = (ListView) findViewById(R.id.listView0);
 		 ArrayList<Family> fm = new  ArrayList<Family>( );
 	     fm = datasourc.getAllFamilies();
 		 
@@ -50,6 +59,28 @@ public class ViewFam extends ActionBarActivity {
 	     // Assign adapter to ListView
         listView.setAdapter(adapter); 
         
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        	
+        	  public void onItemClick(AdapterView<?> parentAdapter, View view, int position,long id) {
+        		  
+        		  AlertDialog.Builder adb = new AlertDialog.Builder(
+        				  ViewFam.this);
+        				  adb.setTitle("Family Information");
+        				  adb.setMessage("Selected Item is = "
+        				  + listView.getItemAtPosition(position));
+        				  adb.setPositiveButton("Ok", null);
+        				  adb.show(); 
+        		 // TextView clickedView = (TextView) view;
+        		  
+        		  //startActivity(new Intent(ViewFam.this,StudentMainMenu.class));
+        		  
+        		  
+        	         //Toast.makeText(ViewFam.this, "Item with id ["+id+"] - Position ["+position+"]"
+        	         	//	+ " - Planet ["+clickedView.getText()+"]", Toast.LENGTH_SHORT).show();
+        	  }
+
+        	
+		});
         
         System.out.println("*************endviewFamilies AFTER VIEFAM***************");
 	}

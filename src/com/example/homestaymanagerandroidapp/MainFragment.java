@@ -1,11 +1,7 @@
 package com.example.homestaymanagerandroidapp;
 
 import java.util.ArrayList;
-
-import com.example.homestaymanagerandroidapp.R;
-
 import java.util.Arrays;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
+import com.example.homestaymanagerandroidapp.R;
 import com.facebook.Request;
 import com.facebook.Request.GraphUserCallback;
 import com.facebook.Response;
@@ -66,9 +62,11 @@ public class MainFragment extends Fragment {
 				  System.out.print("NO MAMEZZZZ");
 				//  System.out.print( StudentOrFamily.EsFamilia);
 				  System.out.print("NO MAMEZZZZ");
+				  
 		            values = new ArrayList<Student>();	
 		            values = datasource.getAllStudents();
 		            Student st;
+		          //  values.get(0)._id = Global.stu_id; 
 		            st = datasource.createStudent(user.getFirstName(), user.getLastName(), 
 		            		user.getProperty("email").toString(), "gender", 
 	    					"phone", "startDate", "endDate", "mail", 

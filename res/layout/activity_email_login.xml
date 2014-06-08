@@ -240,26 +240,6 @@
 
         </RadioGroup>
 
-        <RadioButton
-            android:id="@+id/radio2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/checkBox1"
-            android:layout_below="@+id/checkBoxPool"
-            android:layout_marginTop="36dp"
-            android:onClick = "studentOrFamily"
-            android:text="Student" />
-
-        <RadioButton
-            android:id="@+id/radio_student"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/radio2"
-            android:layout_alignBottom="@+id/radio2"
-            android:layout_toRightOf="@+id/radio2"
-            android:onClick = "studentOrFamily"
-            android:text="Family" />
-
     </RelativeLayout>
 
 </ScrollView>

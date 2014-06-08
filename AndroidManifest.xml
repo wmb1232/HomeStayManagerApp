@@ -52,6 +52,10 @@
             android:name="com.example.homestaymanagerandroidapp.FamilyMainMenu"
             android:label="@string/title_activity_family_main_menu" >
         </activity>
+        <activity
+            android:name="com.example.homestaymanagerandroidapp.View_specific_family"
+            android:label="@string/title_activity_view_specific_family" >
+        </activity>
     </application>
 
 </manifest>
