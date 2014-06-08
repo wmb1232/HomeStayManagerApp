@@ -33,6 +33,7 @@ public class EmailLogin extends Activity {
 	public boolean isStudent = false;
 	public boolean studentExist = false;
 	public boolean familyExist = false;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -100,14 +101,14 @@ public class EmailLogin extends Activity {
  					phone, startDate, endDate, mail, 
 	   					state, zip, allergies, dogPet, catPet, 2);
    	        }
-     	    
+     	  // go to main menu if new account created  
    	     if(fname != null && studentExist == false)
    	    	startActivity(new Intent(EmailLogin.this,MainMenu.class));
    	     
    	        studentExist = false;
      	 	        	
            }
-    	   else if(isFamily == true){ ///////////////////////////////////////////////////////
+    	   else if(isFamily == true){ 
   	    		
       	        for(int i = 0; i < valuesFam.size(); i++)	{
       	        	System.out.println(valuesFam.get(i).firstName);
