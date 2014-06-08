@@ -148,7 +148,7 @@ public class EmailLogin extends Activity {
       
        
 	}
-	
+	/**
 	public void studentOrFamily(View view) {
 	    // Is the button now checked?
 	    boolean checked = ((RadioButton) view).isChecked();
@@ -169,7 +169,7 @@ public class EmailLogin extends Activity {
 	            break;
 	    }
 	}
-	
+	*/
 	
 	
 	  @Override
