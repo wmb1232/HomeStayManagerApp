@@ -32,7 +32,8 @@ public class HomeStayDataSource {
 				MySQLiteHelper.COLUMN_DOG_PET_PREF,
 				MySQLiteHelper.COLUMN_CAT_PET_PREF,
 				MySQLiteHelper.COLUMN_FAMSIZE,
-				MySQLiteHelper.COLUMN_SMOKE
+				MySQLiteHelper.COLUMN_SMOKE,
+				MySQLiteHelper.COLUMN_PASSWORD
 		  };
 	  
 	  public HomeStayDataSource(Context context) {
@@ -252,6 +253,7 @@ public class HomeStayDataSource {
 			    {
 			    	student.smoke = true;
 			    }
+			    student.password = cursor.getString(16);
 			    /**
 			    System.out.println("ID:" + cursor.getColumnIndex(MySQLiteHelper.COLUMN_ID));
 			    System.out.println("fname:" + cursor.getColumnIndex(MySQLiteHelper.COLUMN_FNAME));
@@ -312,6 +314,7 @@ public class HomeStayDataSource {
 		    {
 		    	family.smoke = true;
 		    }
+		    family.password = cursor.getString(16);
 		    /**
 		    System.out.println("ID:" + cursor.getColumnIndex(MySQLiteHelper.COLUMN_ID));
 		    System.out.println("fname:" + cursor.getColumnIndex(MySQLiteHelper.COLUMN_FNAME));

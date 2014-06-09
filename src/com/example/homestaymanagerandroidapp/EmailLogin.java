@@ -69,7 +69,6 @@ public class EmailLogin extends Activity {
        	    final EditText eDate = (EditText) findViewById(R.id.editText7);
        	    final String endDate = eDate.getText().toString();
        	    
-
      	    final String gender = "Male";
     	    final String state = "CA";
     	    final int zip = 5121;
@@ -84,6 +83,12 @@ public class EmailLogin extends Activity {
    
    	    	Student st;
    	    	Family fm;
+   	    	datasource.createStudent("fname", "lname", "email", "gender", 
+   					"phone", "startDate", "endDate", "mail", 
+	   					"state", 3423, "allergies", 4, 2,2,1,"password");
+   	    	datasource.createFamily("fname", "lname", "email", "gender", 
+   					"phone", "startDate", "endDate", "mail", 
+	   					"state", 3423, "allergies", 4, 2,2,1,"password");
    	    	
    	    	if(isStudent == true) {
    	    		
