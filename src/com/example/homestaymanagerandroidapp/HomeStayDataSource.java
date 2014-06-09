@@ -1,6 +1,8 @@
 package com.example.homestaymanagerandroidapp;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -197,34 +199,170 @@ public class HomeStayDataSource {
 			  cursor.moveToNext();
 			}
 			
-			ArrayList<Family> selectedFamilies = new ArrayList<Family>();
+			ArrayList<Family> genderFamilies = new ArrayList<Family>();
 			
 			if(preferences[0])
 			{	
 				for(Family fam: families)
 				{
-					
 					if(fam.gender.equals(student.gender))
 					{
-						selectedFamilies.add(fam);
+						genderFamilies.add(fam);
 					}
+	
 				}
-			
 			}
+			else
+			{
+				genderFamilies = families;
+			}
+			
+			ArrayList<Family> dogPrefFamilies = new ArrayList<Family>();
+			
 			if(preferences[1])
 			{
-				for(Family fam: families)
+				for(Family fam: dogPrefFamilies)
 				{
-					
-					if(fam.gender.equals(student.gender))
+					if(fam.dogPet == student.dogPet)
 					{
-						selectedFamilies.add(fam);
-					}					
-					
+						dogPrefFamilies.add(fam);
+					}
+	
+				}
+			}
+			else
+			{
+				dogPrefFamilies = genderFamilies;
+			}
+			
+			ArrayList<Family> catPrefFamilies = new ArrayList<Family>();
+			
+			if(preferences[2])
+			{
+				for(Family fam: dogPrefFamilies)
+				{
+					if(fam.catPet == student.catPet)
+					{
+						catPrefFamilies.add(fam);
+					}
+	
+				}
+			}
+			else
+			{
+				catPrefFamilies = dogPrefFamilies;
+			}
+			
+			ArrayList<Family> famSizeFamilies = new ArrayList<Family>();
+
+			if(preferences[3])
+			{
+				for(Family fam: catPrefFamilies)
+				{
+					if(fam.famSize <= student.famSize)
+					{
+						famSizeFamilies.add(fam);
+					}
+	
+				}
+			}
+			else
+			{
+				famSizeFamilies = catPrefFamilies;
+			}
+			
+			ArrayList<Family> smokeFamilies = new ArrayList<Family>();
+
+			if(preferences[4])
+			{
+				for(Family fam: famSizeFamilies)
+				{
+					if(fam.smoke == student.smoke)
+					{
+						smokeFamilies.add(fam);
+					}
+	
+				}
+			}
+			else
+			{
+				smokeFamilies = famSizeFamilies;
+			}
+			
+			return smokeFamilies;
+		}
+		
+		
+		public ArrayList<Family> getWizzardFamilies(Student student)
+		{
+			ArrayList<Family> families = new ArrayList<Family>();
+			
+			Cursor cursor = database.query(MySQLiteHelper.TABLE_FAMILIES,
+				    allColumns, null, null, null, null, null);
+			
+			cursor.moveToFirst();
+			while (!cursor.isAfterLast()) 
+			{
+			  Family family = cursorToFamily(cursor);
+			  families.add(family);
+			  cursor.moveToNext();
+			}
+			
+			ArrayList<Family> wizzardFamilies = new ArrayList<Family>();
+			
+			for(Family fam: families)
+			{
+				if(fam.gender.equals(student.gender))
+				{
+					fam.wizzardScore += 1;
+				}
+				if(fam.dogPet == student.dogPet)
+				{
+					fam.wizzardScore += 1;
+				}
+				if(fam.catPet == student.catPet)
+				{
+					fam.wizzardScore += 1;
+				}
+				if(fam.famSize <= student.famSize)
+				{
+					int diff = student.famSize - fam.famSize;
+					if(diff == 0)
+					{
+						fam.wizzardScore += 3;
+					}
+					if(diff == 1)
+					{
+						fam.wizzardScore += 2;
+					}
+					if(diff >= 2)
+					{
+						fam.wizzardScore += 1;
+					}
+				}
+				if(fam.smoke == student.smoke)
+				{
+					fam.wizzardScore += 1;
 				}
 			}
 			
-			return families;
+			
+			Collections.sort(families, COMPARATOR);
+			
+			for(int i = 0; i < 5; i++)
+			{
+				if(families.get(i) != null)
+				{
+					wizzardFamilies.add(families.get(i));
+				}
+				else
+				{
+					break;
+				}
+				
+			}
+						
+			return wizzardFamilies;
 		}
 		  
 		private Student cursorToStudent(Cursor cursor) {
@@ -288,7 +426,8 @@ public class HomeStayDataSource {
 			    return student;
 			  }
 
-		private Family cursorToFamily(Cursor cursor) {
+		private Family cursorToFamily(Cursor cursor) 
+		{
 		    
 			Family family = new Family();
 			family._id = cursor.getInt(0);
@@ -348,6 +487,15 @@ public class HomeStayDataSource {
 		   */
 		    return family;
 		  }
+		
+		private static Comparator<Family> COMPARATOR = new Comparator<Family>()
+			    {
+			    // This is where the sorting happens.
+			        public int compare(Family f1, Family f2)
+			        {
+			            return f1.wizzardScore - f2.wizzardScore;
+			        }
+			    };
 		
 }
 

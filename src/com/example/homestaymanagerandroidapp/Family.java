@@ -2,7 +2,7 @@ package com.example.homestaymanagerandroidapp;
 
 import java.util.Date;
 
-public class Family {
+public class Family{
 	public int _id;
 	public String firstName;
 	public String lastName;
@@ -20,7 +20,7 @@ public class Family {
 	int famSize;
 	boolean smoke;
 	String password;
-	double wizzardScore;
+	int wizzardScore;
 	
 	Family()
 	{
@@ -68,6 +68,8 @@ public class Family {
 			this.smoke = true;
 		}
 		password = pw;
+		wizzardScore = 0;
 	}
+	
 
 }
