@@ -150,6 +150,7 @@ public class HomeStayDataSource {
 		    values.put(MySQLiteHelper.COLUMN_FAMSIZE, famSize);
 		    values.put(MySQLiteHelper.COLUMN_SMOKE, smoke);
 		    values.put(MySQLiteHelper.COLUMN_PASSWORD, password);
+		    
 		    long insertId = database.insert(MySQLiteHelper.TABLE_FAMILIES, null,
 		        values);
 		    Cursor cursor = database.query(MySQLiteHelper.TABLE_FAMILIES,
@@ -198,17 +199,30 @@ public class HomeStayDataSource {
 			
 			ArrayList<Family> selectedFamilies = new ArrayList<Family>();
 			
-			for(Family fam: families)
-			{
-				if(preferences[0])
+			if(preferences[0])
+			{	
+				for(Family fam: families)
 				{
+					
 					if(fam.gender.equals(student.gender))
 					{
 						selectedFamilies.add(fam);
 					}
 				}
-			}
 			
+			}
+			if(preferences[1])
+			{
+				for(Family fam: families)
+				{
+					
+					if(fam.gender.equals(student.gender))
+					{
+						selectedFamilies.add(fam);
+					}					
+					
+				}
+			}
 			
 			return families;
 		}
