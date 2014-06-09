@@ -47,7 +47,7 @@ public class EmailLogin extends Activity {
            
     	   public void onClick(View v) {
     		     
-        	   System.out.println("ENTER BUTTON");
+        	System.out.println("ENTER BUTTON");
             final EditText firstName = (EditText) findViewById(R.id.firstName);
        	    final String fname = firstName.getText().toString();
        	    

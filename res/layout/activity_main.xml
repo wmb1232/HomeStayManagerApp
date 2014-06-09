@@ -16,11 +16,10 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textUsername"
         android:layout_below="@+id/editText1"
-        android:textColor="@color/White"
-        android:layout_marginTop="27dp"
-        
+        android:layout_marginTop="15dp"
         android:text="Password:"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/White" />
 
     <TextView
         android:id="@+id/textUsername"
@@ -28,10 +27,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp"
-        android:textColor="@color/White"
+        android:layout_marginTop="15dp"
         android:text="Username:"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/White" />
 
     <EditText
         android:id="@+id/editText1"
@@ -61,11 +60,11 @@
         android:layout_alignLeft="@+id/editText2"
         android:layout_alignRight="@+id/editText2"
         android:layout_below="@+id/editText2"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="18dp"
         android:clickable="true"
         android:onClick="goMainMenu"
-        android:textColor="@color/White"
-        android:text="LogIn" />
+        android:text="LogIn"
+        android:textColor="@color/White" />
 
     <RadioGroup
         android:id="@+id/radioGroup1"
@@ -79,6 +78,7 @@
             android:id="@+id/radio_student"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
             android:checked="true"
             android:onClick="onRadioButtonClicked"
             android:text="Student" />
@@ -106,5 +106,16 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/button_login"
+        android:layout_alignRight="@+id/button_login"
+        android:layout_below="@+id/button_login"
+        android:text="Register"
+        android:onClick="goToRegister"
+        android:textColor="@color/White" />
 
 </RelativeLayout>

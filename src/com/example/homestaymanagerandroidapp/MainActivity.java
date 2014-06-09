@@ -1,7 +1,11 @@
 package com.example.homestaymanagerandroidapp;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -16,6 +20,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -52,6 +57,15 @@ public class MainActivity extends FragmentActivity {
               public void call(Session session, SessionState state, Exception exception) {
               }
         });
+       
+       
+       /*
+       Session session = Session.getActiveSession();
+       if (session != null && session.isOpened()) {
+			startActivity(new Intent(MainActivity.this,StudentMainMenu.class));
+       } else {
+	
+       }*/
         
        
     }
@@ -115,9 +129,93 @@ public class MainActivity extends FragmentActivity {
         }
     }
     
+    
+    public void goToRegister(View v){
+		  startActivity(new Intent(MainActivity.this,EmailLogin.class));
+
+    }
+    
 	public void goMainMenu(View v)
 	{
-		startActivity(new Intent(MainActivity.this,StudentMainMenu.class));
+				
+		HomeStayDataSource datasourc;
+		
+		EditText text = (EditText)findViewById(R.id.editText1);
+		String userEntered = text.getText().toString();
+		
+		EditText text2 = (EditText)findViewById(R.id.editText2);
+		String passEntered = text2.getText().toString();
+		
+		datasourc = new HomeStayDataSource(this);
+	 	datasourc.open();	
+	 	
+	    boolean exists = false;
+	    
+	    if(userEntered.equals("")){
+			new AlertDialog.Builder(this).setTitle("Error").setMessage("The email cannot be blank").setNeutralButton("Close", null).show();
+			return;
+	    }
+	    if(passEntered.equals("")){
+			new AlertDialog.Builder(this).setTitle("Error").setMessage("The password cannot be blank").setNeutralButton("Close", null).show();
+			return;
+	    }
+	    
+	    ArrayList<Student> list1;
+	    List<Family> list2;
+	    if(Global.EsEstudiante || true){
+	    	list1 = datasourc.getAllStudents();	
+	    	
+	    	for(Student s : list1){
+	    		if(s.emailAddress.equals(userEntered) && s.password.equals(passEntered)){
+	    			exists = true;
+	    			startActivity(new Intent(MainActivity.this,StudentMainMenu.class));
+	    		}
+	    	}	
+	    }
+	    if(Global.EsFamilia || true){
+	    	list2 = datasourc.getAllFamilies();
+	    	for(Family s : list2){
+	    		if(s.emailAddress.equals(userEntered) && s.password.equals(passEntered)){
+	    			exists = true;
+	    			startActivity(new Intent(MainActivity.this,StudentMainMenu.class));
+	    		}
+	    	}	       	
+	    }
+	    
+	    if(!exists){
+			AlertDialog.Builder builder2=new AlertDialog.Builder(MainActivity.this);
+			  builder2.setMessage("Error in Login");
+			  builder2.setPositiveButton("Register",new DialogInterface.OnClickListener() {
+
+			  @Override
+			  public void onClick(DialogInterface dialog, int which) {
+				  startActivity(new Intent(MainActivity.this,EmailLogin.class));
+			  }
+
+			  });
+
+			  builder2.setNegativeButton("Retry", new DialogInterface.OnClickListener() {
+
+			@Override
+			  
+			public void onClick(DialogInterface dialog, int which) {
+
+			  // TODO Auto-generated method stub
+			  //Toast.makeText(getApplicationContext(), "U Clicked Cancel ", Toast.LENGTH_LONG).show();
+
+			  }
+
+			  });
+
+			  builder2.show();
+	    	
+	    }
+	    else{
+	    	startActivity(new Intent(MainActivity.this,StudentMainMenu.class));
+	    }
+
+		  
+		//startActivity(new Intent(MainActivity.this,StudentMainMenu.class));
 		
 	}
     
