@@ -1,15 +1,26 @@
 package com.example.homestaymanagerandroidapp;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.example.homestaymanagerandroidapp.R;
 import com.facebook.Request;
 import com.facebook.Request.GraphUserCallback;
@@ -31,6 +42,7 @@ public class MainFragment extends Fragment {
 	public boolean isFamily = false;
 	public boolean isStudent = false;
 	public boolean studentExist = false;
+	ImageView tv1;
 	
 	
 	@Override
@@ -57,7 +69,9 @@ public class MainFragment extends Fragment {
 				@Override
 			public void onCompleted(GraphUser user, Response response) {
 ///********************* ADD FAMILY OR STUDENT TO DATA BASE *********************************
-					
+	           //     String facebookId = userProfile.get(user.getId()).toString();
+	           //     userProfilePictureView.setProfileId(facebookId);
+		
 			 if(Global.EsEstudiante == true) {
 				  System.out.print("NO MAMEZZZZ");
 				//  System.out.print( StudentOrFamily.EsFamilia);
@@ -66,13 +80,13 @@ public class MainFragment extends Fragment {
 		            values = new ArrayList<Student>();	
 		            values = datasource.getAllStudents();
 		            Student st;
-		          //  values.get(0)._id = Global.stu_id; 
+		         //  values.get(0)._id = Global.stu_id; 
 		            st = datasource.createStudent(user.getFirstName(), user.getLastName(), 
 		            		user.getProperty("email").toString(), "gender", 
 	    					"phone", "startDate", "endDate", "mail", 
 	   	   					"state", 95442, "allergies", 2, 2,2,1,"password");
 				  
-				  
+		            Global.EsEstudiante = false;
 			     startActivity(new Intent(getActivity(),StudentMainMenu.class));
 			 }
 			 else if(Global.EsFamilia == true){
@@ -84,23 +98,21 @@ public class MainFragment extends Fragment {
 		            		user.getProperty("email").toString(), "gender", 
 	    					"phone", "startDate", "endDate", "mail", 
 	   	   					"state", 95442, "allergies", 2, 2, 2,1,"password");
-		            
+		            Global.EsFamilia = false;
 		            startActivity(new Intent(getActivity(),FamilyMainMenu.class));
 		  }
 
 ///********************* ADD FAMILY OR STUDENT TO DATA BASE *********************************
 			}
 			}).executeAsync();
-	        
-	      
-	        
+
 	    } else if (state.isClosed()) {
 	        Log.i(TAG, "Logged out...");
 	        Global.EsEstudiante = false;
 	       Global.EsFamilia = false;
 	    }
 	}
-	
+
 	private Session.StatusCallback callback = new Session.StatusCallback() {
 	    @Override
 	    public void call(Session session, SessionState state, Exception exception) {
@@ -118,6 +130,15 @@ public class MainFragment extends Fragment {
         datasource.open();
 	  
 	}
+    // get user profile picture
+    public Bitmap getFacebookProfilePicture(String userID) throws IOException{
+        URL imgUrl = new URL("https://graph.facebook.com/" + userID + "/picture?type=large");
+        InputStream in = (InputStream) imgUrl.getContent();
+        Bitmap  bitmap = BitmapFactory.decodeStream(in);
+
+        return bitmap;
+    }
+
 	
 	@Override
 	public void onResume() {

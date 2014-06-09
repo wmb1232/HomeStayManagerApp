@@ -16,7 +16,9 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textUsername"
         android:layout_below="@+id/editText1"
+        android:textColor="@color/White"
         android:layout_marginTop="27dp"
+        
         android:text="Password:"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -27,6 +29,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="48dp"
+        android:textColor="@color/White"
         android:text="Username:"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -61,6 +64,7 @@
         android:layout_marginTop="26dp"
         android:clickable="true"
         android:onClick="goMainMenu"
+        android:textColor="@color/White"
         android:text="LogIn" />
 
     <RadioGroup
@@ -94,5 +98,13 @@
         android:layout_below="@+id/radioGroup1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
 
 </RelativeLayout>

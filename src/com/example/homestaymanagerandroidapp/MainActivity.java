@@ -1,6 +1,10 @@
 package com.example.homestaymanagerandroidapp;
 
+import java.net.URL;
+
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -24,7 +28,6 @@ public class MainActivity extends FragmentActivity {
 
 	private RadioGroup rgOpinion;
 	Global status;
-
 
 	private MainFragment mainFragment;
     @Override

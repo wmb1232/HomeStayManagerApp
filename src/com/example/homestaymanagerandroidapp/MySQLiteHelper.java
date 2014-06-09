@@ -11,8 +11,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 	public static final String TABLE_FAMILIES = "Families";
 	public static final String TABLE_WIZARD_MATCH = "WizMatch";
 	public static final String TABLE_FAVORITES = "Favorites";
-	
-	
 	public static final String COLUMN_ID = "_id";
 	public static final String COLUMN_FNAME = "firstName";
 	public static final String COLUMN_LNAME = "lastName";
@@ -30,7 +28,6 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 	public static final String COLUMN_FAMSIZE = "familySize";
 	public static final String COLUMN_SMOKE = "smoke";
 	public static final String COLUMN_PASSWORD = "password";
-	
 	public static final String COLUMN_STUDENTID = "StudentID";
 	public static final String COLUMN_FAMILYID = "FamilyID";
 	
@@ -76,8 +73,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 	    database.execSQL(DATABASE_CREATE_STUDENT);
 	    database.execSQL(DATABASE_CREATE_FAMILIES);
 	    database.execSQL(DATABASE_CREATE_WIZMATCH);
-	    database.execSQL(DATABASE_CREATE_FAVORITES);
-	    
+	    database.execSQL(DATABASE_CREATE_FAVORITES);	    
 	  }
 	
 	 @Override
@@ -91,5 +87,4 @@ public class MySQLiteHelper extends SQLiteOpenHelper{
 	    db.execSQL("DROP TABLE IF EXISTS " + TABLE_FAVORITES);
 	    onCreate(db);
 	  }
-
 }

@@ -40,7 +40,7 @@ public class ViewFam extends ActionBarActivity {
 					.add(R.id.container, new PlaceholderFragment()).commit();
 		}
 		
-	 	System.out.println("*************endviewFamiliesVIEFAM***************");
+	 	 System.out.println("*************endviewFamiliesVIEFAM***************");
     	
 		 final ListView  listView = (ListView) findViewById(R.id.listView0);
 		 ArrayList<Family> fm = new  ArrayList<Family>( );
@@ -121,5 +121,4 @@ public class ViewFam extends ActionBarActivity {
 			return rootView;
 		}
 	}
-
 }
