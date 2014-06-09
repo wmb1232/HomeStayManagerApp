@@ -1,5 +1,7 @@
 package com.example.homestaymanagerandroidapp;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -52,6 +54,7 @@ public class HomeStayDataSource {
 				  String phone, String sDate, String eDate, String address, String state, 
 				  int zip, String allergies, int dogPet, int catPet, int famSize, int smoke, String password) {
 		    
+			
 			ContentValues values = new ContentValues();
 		    values.put(MySQLiteHelper.COLUMN_FNAME, fname);
 		    values.put(MySQLiteHelper.COLUMN_LNAME, lname);
@@ -94,11 +97,20 @@ public class HomeStayDataSource {
 			Cursor cursor = database.query(MySQLiteHelper.TABLE_STUDENTS, allColumns , MySQLiteHelper.COLUMN_EMAIL + " = " 
 			+ email, null, null, null, null);
 			
+			Date tempStartDate = new Date();
+			Date tempEndDate = new Date();
 			if (cursor != null)
 		        cursor.moveToFirst();
+		    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+		    try{
+		    	tempStartDate = formatter.parse(cursor.getString(6));
+		    	tempEndDate = formatter.parse(cursor.getString(7));
+		    }catch (ParseException e ) {
+		        e.printStackTrace();
+		    }
 		 
 		    Student student = new Student(cursor.getInt(0),cursor.getString(1), cursor.getString(2), cursor.getString(3), 
-		    		cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7), cursor.getString(8), 
+		    		cursor.getString(4), cursor.getString(5), tempStartDate, tempEndDate, cursor.getString(8), 
 		    		cursor.getString(9), cursor.getInt(10), cursor.getString(11), cursor.getInt(12), cursor.getInt(13),
 		    		cursor.getInt(14),cursor.getInt(15),cursor.getString(16));
 		    
@@ -236,8 +248,13 @@ public class HomeStayDataSource {
 			    student.gender = cursor.getString(3);
 			    student.phone = cursor.getString(4);
 			    student.emailAddress = cursor.getString(5);
-			    student.startDate = cursor.getString(6);
-			    student.endDate = cursor.getString(7);
+			    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+			    try{
+			    student.startDate = formatter.parse(cursor.getString(6));
+			    student.endDate = formatter.parse(cursor.getString(7));
+			    }catch (ParseException e ) {
+			        e.printStackTrace();
+			    }
 			    student.address = cursor.getString(8);
 			    student.state = cursor.getString(9);
 			    student.zipCode = cursor.getInt(10);
