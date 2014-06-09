@@ -96,6 +96,7 @@
             android:layout_toRightOf="@+id/textView5" />
 
         <TextView
+<<<<<<< HEAD
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -130,10 +131,12 @@
             android:layout_toRightOf="@+id/textView5" />
 
         <TextView
+=======
+>>>>>>> refs/heads/test
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView7"
+            android:layout_below="@+id/textView5"
             android:layout_marginTop="20dp"
             android:text="Alergies:"
             android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -223,23 +226,62 @@
             android:layout_toRightOf="@+id/textView11"
             android:text="Yes" />
 
-        <Button
-            android:id="@+id/btnSubmit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@+id/textView7"
-            android:text="Save Changes" />
-
         <RadioGroup
             android:id="@+id/radioGroup1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/editText10" >
-
         </RadioGroup>
 
+        <Button
+            android:id="@+id/changeDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/checkBoxPool"
+            android:clickable="true"
+            android:onClick="startDateDialog"
+            android:text="Set Start Date" />
+
+        <TextView
+            android:id="@+id/endDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/changeEndDate"
+            android:layout_marginTop="40dp"
+            android:layout_alignLeft="@+id/checkBoxPool"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/startDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/changeDate"
+            android:layout_alignBottom="@+id/changeDate"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/textView11"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Button
+            android:id="@+id/changeEndDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignRight="@+id/changeDate"
+            android:layout_below="@+id/changeDate"
+            android:layout_marginTop="40dp"
+            android:clickable="true"
+            android:onClick="endDateDialog"
+            android:text="Set End Date" />
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="Save Changes" />
+            
     </RelativeLayout>
 
 </ScrollView>

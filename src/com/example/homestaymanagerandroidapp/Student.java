@@ -8,8 +8,8 @@ public class Student {
 	public String emailAddress;
 	public String gender;
 	public String phone;
-	public String startDate;
-	public String endDate;
+	public Date startDate;
+	public Date endDate;
 	public String address;
 	public String state;
 	public int zipCode;
@@ -25,7 +25,7 @@ public class Student {
 		
 	}
 	
-	Student(int id, String fn, String ln, String email, String gender, String ph, String sd, String ed, String add, String st,
+	Student(int id, String fn, String ln, String email, String gender, String ph, Date sd, Date ed, String add, String st,
 			int zip, String alle, int dp, int cp, int famSi, int smoke, String pw )
 	{
 		_id = id;
