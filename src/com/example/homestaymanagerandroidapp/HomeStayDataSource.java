@@ -54,7 +54,8 @@ public class HomeStayDataSource {
 
 		public Student createStudent(String fname, String lname, String email, String gender, 
 				  String phone, String sDate, String eDate, String address, String state, 
-				  int zip, String allergies, int dogPet, int catPet, int famSize, int smoke, String password) {
+				  int zip, String allergies, int dogPet, int catPet, int famSize, int smoke, String password) 
+		{
 		    
 			
 			ContentValues values = new ContentValues();
@@ -83,7 +84,50 @@ public class HomeStayDataSource {
 		    Student newStudent = cursorToStudent(cursor);
 		    cursor.close();
 		    return newStudent;
-		  }
+		}
+		
+		
+		public int updateStudent(Student student) 
+		{
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+			ContentValues values = new ContentValues();
+			values.put(MySQLiteHelper.COLUMN_FNAME, student.firstName);
+		    values.put(MySQLiteHelper.COLUMN_LNAME, student.lastName);
+		    values.put(MySQLiteHelper.COLUMN_EMAIL, student.emailAddress);
+		    values.put(MySQLiteHelper.COLUMN_GENDER, student.gender);
+		    values.put(MySQLiteHelper.COLUMN_PHONE, student.phone);
+		    String sDate_to_string = formatter.format(student.startDate);
+		    values.put(MySQLiteHelper.COLUMN_START_DATE, sDate_to_string);
+		    String eDate_to_string = formatter.format(student.endDate);
+		    values.put(MySQLiteHelper.COLUMN_END_DATE, eDate_to_string);
+		    values.put(MySQLiteHelper.COLUMN_ADDRESS, student.address);
+		    values.put(MySQLiteHelper.COLUMN_STATE, student.state);
+		    values.put(MySQLiteHelper.COLUMN_ZIP, student.zipCode);
+		    values.put(MySQLiteHelper.COLUMN_ALLERGIES, student.allergies);
+		    int dog = 0;
+		    if(student.dogPet)
+		    {
+		    	dog = 1;
+		    }
+		    values.put(MySQLiteHelper.COLUMN_DOG_PET_PREF, dog);
+		    int cat = 0;
+		    if(student.dogPet)
+		    {
+		    	cat = 1;
+		    }
+		    values.put(MySQLiteHelper.COLUMN_CAT_PET_PREF, cat);
+		    values.put(MySQLiteHelper.COLUMN_FAMSIZE, student.famSize);
+		    int smoke = 0;
+		    if(student.smoke)
+		    {
+		    	smoke = 1;
+		    }
+		    values.put(MySQLiteHelper.COLUMN_SMOKE, smoke);
+		    values.put(MySQLiteHelper.COLUMN_PASSWORD, student.password);
+		 
+		    // updating row
+		    return database.update(MySQLiteHelper.TABLE_STUDENTS, values, MySQLiteHelper.COLUMN_ID + " = " + student._id,null);
+		}
 		  
 		public void deleteStudent(String email)
 		{
@@ -176,6 +220,47 @@ public class HomeStayDataSource {
 		    return newFamily;
 	    }
 		
+		public int updateFamily(Family family) 
+		{
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+			ContentValues values = new ContentValues();
+			values.put(MySQLiteHelper.COLUMN_FNAME, family.firstName);
+		    values.put(MySQLiteHelper.COLUMN_LNAME, family.lastName);
+		    values.put(MySQLiteHelper.COLUMN_EMAIL, family.emailAddress);
+		    values.put(MySQLiteHelper.COLUMN_GENDER, family.gender);
+		    values.put(MySQLiteHelper.COLUMN_PHONE, family.phone);
+		    String sDate_to_string = formatter.format(family.startDate);
+		    values.put(MySQLiteHelper.COLUMN_START_DATE, sDate_to_string);
+		    String eDate_to_string = formatter.format(family.endDate);
+		    values.put(MySQLiteHelper.COLUMN_END_DATE, eDate_to_string);
+		    values.put(MySQLiteHelper.COLUMN_ADDRESS, family.address);
+		    values.put(MySQLiteHelper.COLUMN_STATE, family.state);
+		    values.put(MySQLiteHelper.COLUMN_ZIP, family.zipCode);
+		    values.put(MySQLiteHelper.COLUMN_ALLERGIES, family.allergies);
+		    int dog = 0;
+		    if(family.dogPet)
+		    {
+		    	dog = 1;
+		    }
+		    values.put(MySQLiteHelper.COLUMN_DOG_PET_PREF, dog);
+		    int cat = 0;
+		    if(family.dogPet)
+		    {
+		    	cat = 1;
+		    }
+		    values.put(MySQLiteHelper.COLUMN_CAT_PET_PREF, cat);
+		    values.put(MySQLiteHelper.COLUMN_FAMSIZE, family.famSize);
+		    int smoke = 0;
+		    if(family.smoke)
+		    {
+		    	smoke = 1;
+		    }
+		    values.put(MySQLiteHelper.COLUMN_SMOKE, smoke);
+		    values.put(MySQLiteHelper.COLUMN_PASSWORD, family.password);
+		 
+		    // updating row
+		    return database.update(MySQLiteHelper.TABLE_STUDENTS, values, MySQLiteHelper.COLUMN_ID + " = " + family._id,null);
+		}
 		
 		
 		public ArrayList<Family> getAllFamilies() 
