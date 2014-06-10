@@ -195,14 +195,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-<<<<<<< HEAD
+
             android:layout_below="@+id/editText10" >
-=======
+
             android:layout_below="@+id/editText_famsize" >
->>>>>>> refs/heads/newChanges
+
         </RadioGroup>
 
-<<<<<<< HEAD
+
         <Button
             android:id="@+id/changeDate"
             android:layout_width="wrap_content"
@@ -251,7 +251,6 @@
             android:layout_centerHorizontal="true"
             android:text="Save Changes" />
             
-=======
         <EditText
             android:id="@+id/editText_zip"
             android:layout_width="wrap_content"
@@ -302,7 +301,6 @@
             android:layout_toRightOf="@+id/editText_zip"
             android:text="Smoke" />
 
->>>>>>> refs/heads/newChanges
     </RelativeLayout>
 
 </ScrollView>
