@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textUsername"
-        android:layout_below="@+id/editText_zip"
+        android:layout_below="@+id/editTexUserName"
         android:layout_marginTop="27dp"
         android:text="Password:"
         android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -31,7 +31,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
-        android:id="@+id/editText_zip"
+        android:id="@+id/editTexUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textUsername"
@@ -40,10 +40,10 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/edittextLastName"
+        android:id="@+id/editTextPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText_zip"
+        android:layout_alignLeft="@+id/editTexUserName"
         android:layout_below="@+id/text_paswd"
         android:ems="10"
         android:inputType="textPassword" >
@@ -55,7 +55,7 @@
         android:id="@+id/button_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/edittextLastName"
+        android:layout_below="@+id/editTextPassword"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:clickable="true"

@@ -37,7 +37,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
-            android:id="@+id/edittextLastName"
+            android:id="@+id/editTextPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -95,76 +95,6 @@
             android:layout_alignTop="@+id/textView5"
             android:layout_toRightOf="@+id/textView5" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView5"
-            android:layout_marginTop="20dp"
-            android:text="Start Date:"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <EditText
-            android:id="@+id/editText_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/textView6"
-            android:layout_toRightOf="@+id/textView5" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView6"
-            android:layout_marginTop="20dp"
-            android:text="End Date:"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <EditText
-            android:id="@+id/editText_end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/textView7"
-            android:layout_toRightOf="@+id/textView5" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView5"
-            android:layout_marginTop="20dp"
-            android:text="Alergies:"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <EditText
-            android:id="@+id/editText_eller"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/editText_end"
-            android:layout_alignParentRight="true"
-            android:layout_alignTop="@+id/textView8" />
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView8"
-            android:layout_marginTop="20dp"
-            android:text="Smoke?:"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <TextView
-            android:id="@+id/gender"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/editText_mailing"
-            android:layout_alignTop="@+id/textView9"
-            android:layout_marginLeft="17dp"
-            android:text="Gender"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
         <EditText
             android:id="@+id/editText_famsize"
             android:layout_width="wrap_content"
@@ -172,76 +102,23 @@
             android:layout_alignTop="@+id/textView10"
             android:layout_toRightOf="@+id/textView10" />
 
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView9"
-            android:layout_marginTop="20dp"
-            android:text="Max Family Size:"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <TextView
-            android:id="@+id/textView_zip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView10"
-            android:layout_marginTop="20dp"
-            android:text="Zip Code:"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
         <RadioGroup
             android:id="@+id/radioGroup1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-
             android:layout_below="@+id/editText10" >
-
             android:layout_below="@+id/editText_famsize" >
-
         </RadioGroup>
-
-
-        <Button
-            android:id="@+id/changeDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/checkBoxPool"
-            android:clickable="true"
-            android:onClick="startDateDialog"
-            android:text="Set Start Date" />
 
         <TextView
             android:id="@+id/endDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/changeEndDate"
-            android:layout_marginTop="40dp"
-            android:layout_alignLeft="@+id/checkBoxPool"
+            android:layout_alignTop="@+id/changeEndDate"
+            android:layout_toRightOf="@+id/changeEndDate"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <TextView
-            android:id="@+id/startDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/changeDate"
-            android:layout_alignBottom="@+id/changeDate"
-            android:layout_alignParentRight="true"
-            android:layout_toRightOf="@+id/textView11"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <Button
-            android:id="@+id/changeEndDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignRight="@+id/changeDate"
-            android:layout_below="@+id/changeDate"
-            android:layout_marginTop="40dp"
-            android:clickable="true"
-            android:onClick="endDateDialog"
-            android:text="Set End Date" />
 
         <Button
             android:id="@+id/btnSubmit"
@@ -250,18 +127,6 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:text="Save Changes" />
-            
-        <EditText
-            android:id="@+id/editText_zip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/editText_famsize"
-            android:layout_below="@+id/textView_zip"
-            android:layout_toRightOf="@+id/textView_zip"
-            android:ems="10" >
-
-            <requestFocus />
-        </EditText>
 
         <EditText
             android:id="@+id/editText_gender"
@@ -274,32 +139,115 @@
             android:ems="10" />
 
         <RadioButton
-            android:id="@+id/radioButton_Dog"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/editText_zip"
-             android:onClick="onRadioButtonClickedDogCat"
-            android:text="Dog" />
-
-        <RadioButton
             android:id="@+id/radioButton_cat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/radioButton_Dog"
             android:layout_alignBottom="@+id/radioButton_Dog"
-            android:layout_toRightOf="@+id/textView6"
             android:onClick="onRadioButtonClickedDogCat"
             android:text="Cat" />
+
+        <Button
+            android:id="@+id/changeEndDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/changeDate"
+            android:layout_marginTop="30dp"
+            android:clickable="true"
+            android:onClick="endDateDialog"
+            android:text="Set End Date" />
+
+        <Button
+            android:id="@+id/changeDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/radioButton_Dog"
+            android:layout_marginTop="48dp"
+            android:clickable="true"
+            android:onClick="startDateDialog"
+            android:text="Set Start Date" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/radioButton_Dog"
+            android:text="Max Family Size:"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <RadioButton
+            android:id="@+id/radioButton_Dog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTexUserName"
+            android:layout_toRightOf="@+id/textView4"
+            android:onClick="onRadioButtonClickedDogCat"
+            android:text="Dog" />
+
+        <EditText
+            android:id="@+id/editText_eller"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/editTexUserName"
+            android:layout_alignTop="@+id/textView8"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/textView_zip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/editText_mailing"
+            android:layout_marginTop="67dp"
+            android:text="Zip Code:"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <EditText
+            android:id="@+id/editTexUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView_zip"
+            android:layout_toRightOf="@+id/textView4"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText_mailing"
+            android:layout_toLeftOf="@+id/editText_eller"
+            android:text="Alergies:"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editText_eller"
+            android:layout_toRightOf="@+id/radioButton_Dog"
+            android:text="Gender"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <RadioButton
             android:id="@+id/radioButton_smoke"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/radioButton_cat"
-            android:layout_alignBottom="@+id/radioButton_cat"
-            android:layout_toRightOf="@+id/editText_zip"
+            android:layout_above="@+id/editText_famsize"
+            android:layout_alignLeft="@+id/editText_mailing"
             android:text="Smoke" />
+
+        <TextView
+            android:id="@+id/startDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/changeDate"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/changeDate"
+            android:layout_toRightOf="@+id/changeDate"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
     </RelativeLayout>
 

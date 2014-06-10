@@ -73,10 +73,7 @@ public class MainFragment extends Fragment {
 	           //     userProfilePictureView.setProfileId(facebookId);
 		
 			 if(Global.EsEstudiante == true) {
-				  System.out.print("NO MAMEZZZZ");
-			  	//  System.out.print( StudentOrFamily.EsFamilia);
-				  System.out.print("NO MAMEZZZZ");
-				  
+			  
 		            values = new ArrayList<Student>();	
 		            values = datasource.getAllStudents();
 		            

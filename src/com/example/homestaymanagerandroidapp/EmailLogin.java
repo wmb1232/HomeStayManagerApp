@@ -81,14 +81,12 @@ public class EmailLogin extends Activity {
            
     	   public void onClick(View v) {
     		     
-
-
         	   System.out.println("ENTER BUTTON");
             final EditText firstName = (EditText) findViewById(R.id.edittext_firstName);
 
        	    final String fname = firstName.getText().toString();
        	    
-       	    final EditText lastName = (EditText) findViewById(R.id.edittextLastName);
+       	    final EditText lastName = (EditText) findViewById(R.id.editTextPassword);
        	    final String lname = lastName.getText().toString();
 
        	    final EditText emaiL = (EditText) findViewById(R.id.editText_email);
@@ -104,11 +102,10 @@ public class EmailLogin extends Activity {
 
        	    final String endDate = String.valueOf(end_day) + "/" + String.valueOf(end_month) + "/" + String.valueOf(end_yr);
 
-
        	    final EditText ate = (EditText) findViewById(R.id.editText_gender);
     	    final String gender = ate.getText().toString();
     	    
-    	    final EditText zp = (EditText) findViewById(R.id.editText_zip);
+    	    final EditText zp = (EditText) findViewById(R.id.editTexUserName);
        	    final int zip = Integer.parseInt(zp.getText().toString());     	    
  	    
     	    final EditText famsize = (EditText) findViewById(R.id.editText_famsize);
@@ -135,7 +132,7 @@ public class EmailLogin extends Activity {
    	    			if(email.equals(values.get(i).emailAddress)) {
    	    				Toast.makeText(getApplicationContext(), 
       					"Account associated with this email already exist", Toast.LENGTH_LONG).show();   	    	
-   	    				Global.stu_id = values.get(i)._id;
+   	    			    //	Global.stu_id = values.get(i)._id;
    	    				studentExist = true;
    	    			 break;
    	    			}
@@ -145,26 +142,22 @@ public class EmailLogin extends Activity {
 
    	    			st = datasource.createStudent(fname, lname, email, gender, 
         		   					phone, startDate, endDate, mail, 
-
-        			   					state, zip, allergies, dog, cat,2,1,"password");
-          	
-        	 
-     	    ArrayList<Student> values = new ArrayList<Student>(); 			   					
+        		   					state, zip, allergies, dog, cat,2,1,"password");        				   					
    	    			
    	    			studentExist = true;
-   	    			Global.stu_id = values.get(values.size()-1)._id;
+   	    			//Global.stu_id = values.get(values.size())._id;
 
 
      	        	System.out.println("***********stu**************");
      	        	System.out.println(fname+ "\n"+ lname+ " \n" +email+ "\n" +gender+ "\n"+ 
 		   				   phone+ "\n" +startDate+ " \n" +endDate+ " \n" +mail+ " \n" 
-		   				   + state+ " \n"+ zip+ " \n" +allergies+ " \n" +dog+ " \n" +cat+ " \n"+familySizee+ " \n"+smoke+ " \n"+"password");
+		   				   + state+ " \n"+ zip+ " \n" +allergies+ " \n" +dog+ " \n" +cat+ " \n"+familySizee+
+		   				   " \n"+smoke+ " \n"+"password");
      	        	System.out.println(	Global.stu_id );
      	        	System.out.println("*************endest*************");
      	        	
-   	    			if(email != null)
-   	    				finish();
-    	
+   	    			if(email != null &&studentExist == true )
+   	    				startActivity(new Intent(EmailLogin.this,StudentMainMenu.class)); 	
    	       }
      	  // go to main menu if new account created   	     
      	 	        	
@@ -177,29 +170,28 @@ public class EmailLogin extends Activity {
       	      	  if(email.equals(valuesFam.get(i).emailAddress)) {
    			     Toast.makeText(getApplicationContext(), 
                             "Account associated with this email already exist", Toast.LENGTH_LONG).show();
-   			  Global.fam_id =  valuesFam.indexOf(valuesFam.get(i));
+   			  //  Global.fam_id =  valuesFam.indexOf(valuesFam.get(i));
    			     familyExist = true;
    			     break;
       	      	 }
                 }
       	        if(familyExist == false) {
         	 
-               fm = datasource.createFamily(fname, lname, email, gender, 
+      	        	fm = datasource.createFamily(fname, lname, email, gender, 
     					phone, startDate, endDate, mail, 
    	   					state, zip, allergies, dog, cat, familySizee,smoke,"password");     
-               familyExist = false;               
-               Global.fam_id = valuesFam.get(valuesFam.size()-1)._id;
+      	        	familyExist = false;               
+      	        	// Global.fam_id = valuesFam.get(valuesFam.size())._id;
              
-             	System.out.println("***********getfam**************");
-            	System.out.println(fname+ "\n"+ lname+ " \n" +email+ "\n" +gender+ "\n"+ 
+      	        	System.out.println("***********getfam**************");
+      	        	System.out.println(fname+ "\n"+ lname+ " \n" +email+ "\n" +gender+ "\n"+ 
       				   phone+ "\n" +startDate+ " \n" +endDate+ " \n" +mail+ " \n" 
       				   + state+ " \n"+ zip+ " \n" +allergies+ " \n" +dog+ " \n" +cat+ " \n"+familySizee+ " \n"+smoke+ " \n"+"password");
-            	System.out.println(	Global.fam_id);
-            	System.out.println("*************endgetfam*************");
-        	   
-      	        
-       	      if(email != null)
-       	    	finish();
+      	        	System.out.println(	Global.fam_id);
+      	        	System.out.println("*************endgetfam*************");
+        	      	  
+      	        	if(email != null && familyExist == false)
+      	        		startActivity(new Intent(EmailLogin.this,FamilyMainMenu.class)); 	
       	        
       	        }
     	     }
@@ -209,28 +201,7 @@ public class EmailLogin extends Activity {
       
        
 	}
-	/**
-	public void studentOrFamily(View view) {
-	    // Is the button now checked?
-	    boolean checked = ((RadioButton) view).isChecked();
-	 
-	    // Check which radio button was clicked
-	    switch(view.getId()) {
-	        case R.id.radio_student:
-	            if (checked){
-	               isFamily = true;
-	               System.out.print("FAMILY");
-	            }
-	            break;
-	        case R.id.radio2:
-	            if (checked){
-	               isStudent = true;
-	               System.out.print("Student");
-	            }
-	            break;
-	    }
-	}
-	*/
+
     public void onRadioButtonClickedDogCat(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();

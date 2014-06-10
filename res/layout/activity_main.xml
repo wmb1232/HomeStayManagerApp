@@ -10,107 +10,6 @@
     android:paddingRight="16dp"
     tools:context="com.example.homestaymanagerandroidapp.StudentMainMenu" >
 
-    <TextView
-        android:id="@+id/text_paswd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textUsername"
-        android:layout_below="@+id/editText1"
-        android:layout_marginTop="15dp"
-
-        android:layout_below="@+id/editText_zip"
-        android:textColor="@color/White"
-        android:layout_marginTop="27dp"
-        
-        android:text="Password:"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/White" />
-
-    <TextView
-        android:id="@+id/textUsername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:text="Username:"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/White" />
-
-    <EditText
-        android:id="@+id/editText_zip"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textUsername"
-        android:layout_centerHorizontal="true"
-        android:ems="10"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/edittextLastName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText_zip"
-        android:layout_below="@+id/text_paswd"
-        android:ems="10"
-        android:inputType="textPassword" >
-
-        <requestFocus />
-    </EditText>
-
-    <Button
-        android:id="@+id/button_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignRight="@+id/editText2"
-        android:layout_below="@+id/editText2"
-        android:layout_marginTop="18dp"
-
-        android:layout_alignLeft="@+id/edittextLastName"
-        android:layout_alignRight="@+id/edittextLastName"
-        android:layout_below="@+id/edittextLastName"
-        android:layout_marginTop="26dp"
-
-        android:clickable="true"
-        android:onClick="goMainMenu"
-        android:text="LogIn"
-        android:textColor="@color/White" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button_login"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp" >
-
-        <RadioButton
-            android:id="@+id/radio_student"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:checked="true"
-            android:onClick="onRadioButtonClicked"
-            android:text="Student" />
-
-        <RadioButton
-            android:id="@+id/radio_family"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onRadioButtonClicked"
-            android:text="Family" />
-    </RadioGroup>
-
-    <com.facebook.widget.LoginButton
-        android:id="@+id/authButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/radioGroup1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp" />
-
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
@@ -119,15 +18,103 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
 
+    <com.facebook.widget.LoginButton
+        android:id="@+id/authButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView1"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_alignRight="@+id/button1"
+        android:layout_marginBottom="38dp" />
+
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/button_login"
         android:layout_alignRight="@+id/button_login"
-        android:layout_below="@+id/button_login"
-        android:text="Register"
+        android:layout_centerVertical="true"
         android:onClick="goToRegister"
+        android:text="Register"
         android:textColor="@color/White" />
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:onClick="goMainMenu"
+        android:text="LogIn"
+        android:textColor="@color/White" />
+
+    <TextView
+        android:id="@+id/textUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="Username:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/White" />
+
+    <TextView
+        android:id="@+id/text_paswd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTexUserName"
+        android:layout_centerHorizontal="true"
+        android:text="Password:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="@color/White" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_paswd"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textPassword" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/editTexUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textUsername"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/authButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp" >
+
+        <RadioButton
+            android:id="@+id/radio_student"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:checked="false"
+            android:onClick="onRadioButtonClicked"
+            android:text="Student" />
+
+        <RadioButton
+            android:id="@+id/radio_family"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:onClick="onRadioButtonClicked"
+            android:text="Family" />
+    </RadioGroup>
 
 </RelativeLayout>

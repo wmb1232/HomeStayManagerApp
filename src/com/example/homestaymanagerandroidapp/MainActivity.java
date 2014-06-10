@@ -140,10 +140,10 @@ public class MainActivity extends FragmentActivity {
 				
 		HomeStayDataSource datasourc;
 		
-		EditText text = (EditText)findViewById(R.id.editText1);
+		EditText text = (EditText)findViewById(R.id.editTexUserName);
 		String userEntered = text.getText().toString();
 		
-		EditText text2 = (EditText)findViewById(R.id.editText2);
+		EditText text2 = (EditText)findViewById(R.id.editTextPassword);
 		String passEntered = text2.getText().toString();
 		
 		datasourc = new HomeStayDataSource(this);
