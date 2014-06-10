@@ -15,8 +15,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textUsername"
+<<<<<<< HEAD
         android:layout_below="@+id/editText1"
         android:layout_marginTop="15dp"
+=======
+        android:layout_below="@+id/editText_zip"
+        android:textColor="@color/White"
+        android:layout_marginTop="27dp"
+        
+>>>>>>> refs/heads/newChanges
         android:text="Password:"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/White" />
@@ -33,7 +40,7 @@
         android:textColor="@color/White" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/editText_zip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textUsername"
@@ -42,10 +49,10 @@
         android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/edittextLastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText1"
+        android:layout_alignLeft="@+id/editText_zip"
         android:layout_below="@+id/text_paswd"
         android:ems="10"
         android:inputType="textPassword" >
@@ -57,10 +64,17 @@
         android:id="@+id/button_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
         android:layout_alignLeft="@+id/editText2"
         android:layout_alignRight="@+id/editText2"
         android:layout_below="@+id/editText2"
         android:layout_marginTop="18dp"
+=======
+        android:layout_alignLeft="@+id/edittextLastName"
+        android:layout_alignRight="@+id/edittextLastName"
+        android:layout_below="@+id/edittextLastName"
+        android:layout_marginTop="26dp"
+>>>>>>> refs/heads/newChanges
         android:clickable="true"
         android:onClick="goMainMenu"
         android:text="LogIn"

@@ -20,7 +20,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
-            android:id="@+id/firstName"
+            android:id="@+id/edittext_firstName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -37,7 +37,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/edittextLastName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -54,7 +54,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
-            android:id="@+id/editText3"
+            android:id="@+id/editText_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -71,7 +71,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
-            android:id="@+id/editText4"
+            android:id="@+id/editText_phon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -88,7 +88,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
-            android:id="@+id/editText5"
+            android:id="@+id/editText_mailing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -105,7 +105,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
-            android:id="@+id/editText6"
+            android:id="@+id/editText_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -122,7 +122,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
-            android:id="@+id/editText7"
+            android:id="@+id/editText_end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -139,10 +139,10 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
-            android:id="@+id/editText8"
+            android:id="@+id/editText_eller"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/editText7"
+            android:layout_alignLeft="@+id/editText_end"
             android:layout_alignParentRight="true"
             android:layout_alignTop="@+id/textView8" />
 
@@ -155,43 +155,18 @@
             android:text="Smoke?:"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <CheckBox
-            android:id="@+id/checkBox1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/textView9"
-            android:layout_toRightOf="@+id/textView9"
-            android:text="Yes" />
-
-        <CheckBox
-            android:id="@+id/checkBoxM"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/textView9"
-            android:layout_toRightOf="@+id/gender"
-            android:text="M" />
-
-        <CheckBox
-            android:id="@+id/checkBoxF"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/textView9"
-            android:layout_toRightOf="@+id/checkBoxM"
-            android:text="F" />
-
         <TextView
             android:id="@+id/gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/checkBoxM"
-            android:layout_alignBottom="@+id/checkBoxM"
-            android:layout_alignLeft="@+id/editText5"
+            android:layout_alignLeft="@+id/editText_mailing"
+            android:layout_alignTop="@+id/textView9"
             android:layout_marginLeft="17dp"
             android:text="Gender"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
-            android:id="@+id/editText10"
+            android:id="@+id/editText_famsize"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/textView10"
@@ -207,30 +182,27 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/textView_zip"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView10"
             android:layout_marginTop="20dp"
-            android:text="Swimming Pool:"
+            android:text="Zip Code:"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <CheckBox
-            android:id="@+id/checkBoxPool"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/textView11"
-            android:layout_toRightOf="@+id/textView11"
-            android:text="Yes" />
 
         <RadioGroup
             android:id="@+id/radioGroup1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+<<<<<<< HEAD
             android:layout_below="@+id/editText10" >
+=======
+            android:layout_below="@+id/editText_famsize" >
+>>>>>>> refs/heads/newChanges
         </RadioGroup>
 
+<<<<<<< HEAD
         <Button
             android:id="@+id/changeDate"
             android:layout_width="wrap_content"
@@ -279,6 +251,58 @@
             android:layout_centerHorizontal="true"
             android:text="Save Changes" />
             
+=======
+        <EditText
+            android:id="@+id/editText_zip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@+id/editText_famsize"
+            android:layout_below="@+id/textView_zip"
+            android:layout_toRightOf="@+id/textView_zip"
+            android:ems="10" >
+
+            <requestFocus />
+        </EditText>
+
+        <EditText
+            android:id="@+id/editText_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/gender"
+            android:layout_alignBottom="@+id/gender"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@+id/gender"
+            android:ems="10" />
+
+        <RadioButton
+            android:id="@+id/radioButton_Dog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/editText_zip"
+             android:onClick="onRadioButtonClickedDogCat"
+            android:text="Dog" />
+
+        <RadioButton
+            android:id="@+id/radioButton_cat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/radioButton_Dog"
+            android:layout_alignBottom="@+id/radioButton_Dog"
+            android:layout_toRightOf="@+id/textView6"
+            android:onClick="onRadioButtonClickedDogCat"
+            android:text="Cat" />
+
+        <RadioButton
+            android:id="@+id/radioButton_smoke"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/radioButton_cat"
+            android:layout_alignBottom="@+id/radioButton_cat"
+            android:layout_toRightOf="@+id/editText_zip"
+            android:text="Smoke" />
+
+>>>>>>> refs/heads/newChanges
     </RelativeLayout>
 
 </ScrollView>

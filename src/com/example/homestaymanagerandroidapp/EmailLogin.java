@@ -40,10 +40,16 @@ public class EmailLogin extends Activity {
 	public boolean isStudent = false;
 	public boolean studentExist = false;
 	public boolean familyExist = false;
+
 	int dialog_id =1;
 	int start_yr, start_day, start_month,end_yr,end_day,end_month;
 	String weekDay;
 	SimpleDateFormat dayFormat = new SimpleDateFormat("EEEE", Locale.US);;
+
+    private int cat = 0;
+    private int dog = 0;
+    private int smoke = 0;
+
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -75,33 +81,44 @@ public class EmailLogin extends Activity {
            
     	   public void onClick(View v) {
     		     
-        	System.out.println("ENTER BUTTON");
-            final EditText firstName = (EditText) findViewById(R.id.firstName);
+
+
+        	   System.out.println("ENTER BUTTON");
+            final EditText firstName = (EditText) findViewById(R.id.edittext_firstName);
+
        	    final String fname = firstName.getText().toString();
        	    
-       	    final EditText lastName = (EditText) findViewById(R.id.editText2);
+       	    final EditText lastName = (EditText) findViewById(R.id.edittextLastName);
        	    final String lname = lastName.getText().toString();
 
-       	    final EditText emaiL = (EditText) findViewById(R.id.editText3);
+       	    final EditText emaiL = (EditText) findViewById(R.id.editText_email);
        	    final String email = emaiL.getText().toString();
 
-       	    final EditText phoneN = (EditText) findViewById(R.id.editText4);
+       	    final EditText phoneN = (EditText) findViewById(R.id.editText_phon);
        	    final String phone = phoneN.getText().toString();
        	    
-       	    final EditText mailingAddress = (EditText) findViewById(R.id.editText5);
+       	    final EditText mailingAddress = (EditText) findViewById(R.id.editText_mailing);
        	    final String mail = mailingAddress.getText().toString();
        	    
        	    final String startDate = String.valueOf(start_day) + "/" + String.valueOf(start_month) + "/" + String.valueOf(start_yr);
-       	    
+
        	    final String endDate = String.valueOf(end_day) + "/" + String.valueOf(end_month) + "/" + String.valueOf(end_yr);
-       	    
-     	    final String gender = "Male";
+
+
+       	    final EditText ate = (EditText) findViewById(R.id.editText_gender);
+    	    final String gender = ate.getText().toString();
+    	    
+    	    final EditText zp = (EditText) findViewById(R.id.editText_zip);
+       	    final int zip = Integer.parseInt(zp.getText().toString());     	    
+ 	    
+    	    final EditText famsize = (EditText) findViewById(R.id.editText_famsize);
+    	    final int familySizee = Integer.parseInt(famsize.getText().toString());
+     	  
     	    final String state = "CA";
-    	    final int zip = 5121;
-    	    final int dogPet = 0;
-    	    final int catPet = 1;
-    	    final String allergies = "NONE";
-    	              
+    	    
+    	    final EditText allerg = (EditText) findViewById(R.id.editText_eller);
+    	    final String allergies = allerg.getText().toString();
+             
             values = new ArrayList<Student>();
             values = datasource.getAllStudents();  
             valuesFam = new ArrayList<Family>();	
@@ -109,72 +126,84 @@ public class EmailLogin extends Activity {
    
    	    	Student st;
    	    	Family fm;
-   	    	datasource.createStudent("fname", "lname", "email", "gender", 
-   					"phone", "startDate", "endDate", "mail", 
-	   					"state", 3423, "allergies", 4, 2,2,1,"password");
-   	    	datasource.createFamily("fname", "lname", "email", "gender", 
-   					"phone", "startDate", "endDate", "mail", 
-	   					"state", 3423, "allergies", 4, 2,2,1,"password");
+   	    	System.out.println("Es Estuduante "+ Global.EsEstudiante);
+   	    	System.out.println("Es familia "+ Global.EsFamilia);
+//************b********ADD STUDENT ***************************
    	    	
-   	    	if(isStudent == true) {
-   	    		
-   	        for(int i = 0; i < values.size(); i++)	{
-   	      	  if(fname.equals(values.get(i).firstName)) {
-			     Toast.makeText(getApplicationContext(), 
-                         "Account associated with this email already exist", Toast.LENGTH_LONG).show();
-			     studentExist = true;
-   	      	 }
-            }
-   	        if(studentExist == false) {
+   	    	if(Global.EsEstudiante == true) {	
+   	    		for(int i = 0; i < values.size(); i++)	{
+   	    			if(email.equals(values.get(i).emailAddress)) {
+   	    				Toast.makeText(getApplicationContext(), 
+      					"Account associated with this email already exist", Toast.LENGTH_LONG).show();   	    	
+   	    				Global.stu_id = values.get(i)._id;
+   	    				studentExist = true;
+   	    			 break;
+   	    			}
+   	    		}
+       
+   	    		if(studentExist == false) {
 
-          	st = datasource.createStudent(fname, lname, email, gender, 
+   	    			st = datasource.createStudent(fname, lname, email, gender, 
         		   					phone, startDate, endDate, mail, 
-        			   					state, zip, allergies, dogPet, catPet,2,1,"password");
+
+        			   					state, zip, allergies, dog, cat,2,1,"password");
           	
         	 
-     	    ArrayList<Student> values = new ArrayList<Student>();
+     	    ArrayList<Student> values = new ArrayList<Student>(); 			   					
+   	    			
+   	    			studentExist = true;
+   	    			Global.stu_id = values.get(values.size()-1)._id;
 
-     	    values = datasource.getAllStudents();
-     	    
- 		
-     	        	System.out.println("***********get**************");
-     	        	System.out.println(values.get(0).firstName);
-     	        	System.out.println("*************endget*************");
+
+     	        	System.out.println("***********stu**************");
+     	        	System.out.println(fname+ "\n"+ lname+ " \n" +email+ "\n" +gender+ "\n"+ 
+		   				   phone+ "\n" +startDate+ " \n" +endDate+ " \n" +mail+ " \n" 
+		   				   + state+ " \n"+ zip+ " \n" +allergies+ " \n" +dog+ " \n" +cat+ " \n"+familySizee+ " \n"+smoke+ " \n"+"password");
+     	        	System.out.println(	Global.stu_id );
+     	        	System.out.println("*************endest*************");
      	        	
-   	        }
-     	  // go to main menu if new account created  
-   	     if(fname != null && studentExist == false)
-   	    	startActivity(new Intent(EmailLogin.this,StudentMainMenu.class));
-   	     
-   	        studentExist = false;
+   	    			if(email != null)
+   	    				finish();
+    	
+   	       }
+     	  // go to main menu if new account created   	     
      	 	        	
-           }
-    	   else if(isFamily == true){ 
-  	    		
+        }
+   	//*******************END ADD STUDENT ***************************	
+   	    	
+    	   if(Global.EsFamilia == true){  	    		
       	        for(int i = 0; i < valuesFam.size(); i++)	{
-      	        	System.out.println(valuesFam.get(i).firstName);
-      	      	  if(fname.equals(valuesFam.get(i).firstName)) {
+      	        	//System.out.println(valuesFam.get(i).firstName);
+      	      	  if(email.equals(valuesFam.get(i).emailAddress)) {
    			     Toast.makeText(getApplicationContext(), 
                             "Account associated with this email already exist", Toast.LENGTH_LONG).show();
-   			  familyExist = true;
+   			  Global.fam_id =  valuesFam.indexOf(valuesFam.get(i));
+   			     familyExist = true;
+   			     break;
       	      	 }
-               }
+                }
       	        if(familyExist == false) {
-    
         	 
                fm = datasource.createFamily(fname, lname, email, gender, 
     					phone, startDate, endDate, mail, 
-   	   					state, zip, allergies, dogPet, catPet, 2,1,"password");
+   	   					state, zip, allergies, dog, cat, familySizee,smoke,"password");     
+               familyExist = false;               
+               Global.fam_id = valuesFam.get(valuesFam.size()-1)._id;
+             
+             	System.out.println("***********getfam**************");
+            	System.out.println(fname+ "\n"+ lname+ " \n" +email+ "\n" +gender+ "\n"+ 
+      				   phone+ "\n" +startDate+ " \n" +endDate+ " \n" +mail+ " \n" 
+      				   + state+ " \n"+ zip+ " \n" +allergies+ " \n" +dog+ " \n" +cat+ " \n"+familySizee+ " \n"+smoke+ " \n"+"password");
+            	System.out.println(	Global.fam_id);
+            	System.out.println("*************endgetfam*************");
+        	   
+      	        
+       	      if(email != null)
+       	    	finish();
+      	        
       	        }
-        	    
-      	     if(fname != null && familyExist == false)
-      	    	startActivity(new Intent(EmailLogin.this,StudentMainMenu.class));
-      	     
-      	      familyExist = false;
-        	 	        	  		   
-    		   
-    	   }
-    	   
+    	     }
+  
     	   }
        });
       
@@ -202,7 +231,26 @@ public class EmailLogin extends Activity {
 	    }
 	}
 	*/
-	
+    public void onRadioButtonClickedDogCat(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+        
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radioButton_Dog:
+                if (checked)
+                dog= 1;
+                break;
+            case R.id.radioButton_cat:
+                if (checked)
+                	cat = 1;
+                break;
+            case R.id.radioButton_smoke:
+                if (checked)
+                	smoke =1;
+                break;
+        }
+    }
 	
 	  @Override
 	  protected void onResume() {

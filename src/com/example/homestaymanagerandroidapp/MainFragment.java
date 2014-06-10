@@ -61,33 +61,33 @@ public class MainFragment extends Fragment {
 	private static final String TAG = "MainFragment";
 	public MainActivity StudentOrFamily = new MainActivity() ;
 	private void onSessionStateChange(Session session, SessionState state, Exception exception) {
-		System.out.print("NO MAMESSSSSSSSSSSSS");
+		
 	    if (state.isOpened()) {
 	        Log.i(TAG, "Logged in...");
 	        
 	        Request.newMeRequest(session, new Request.GraphUserCallback() {    		
 				@Override
 			public void onCompleted(GraphUser user, Response response) {
-///********************* ADD FAMILY OR STUDENT TO DATA BASE *********************************
+///*************[******** ADD FAMILY OR STUDENT TO DATA BASE *********************************
 	           //     String facebookId = userProfile.get(user.getId()).toString();
 	           //     userProfilePictureView.setProfileId(facebookId);
 		
 			 if(Global.EsEstudiante == true) {
 				  System.out.print("NO MAMEZZZZ");
-				//  System.out.print( StudentOrFamily.EsFamilia);
+			  	//  System.out.print( StudentOrFamily.EsFamilia);
 				  System.out.print("NO MAMEZZZZ");
 				  
 		            values = new ArrayList<Student>();	
 		            values = datasource.getAllStudents();
+		            
 		            Student st;
 		         //  values.get(0)._id = Global.stu_id; 
 		            st = datasource.createStudent(user.getFirstName(), user.getLastName(), 
 		            		user.getProperty("email").toString(), "gender", 
 	    					"phone", "startDate", "endDate", "mail", 
-	   	   					"state", 95442, "allergies", 2, 2,2,1,"password");
-				  
-		            Global.EsEstudiante = false;
+	   	   					"state", 95442, "allergies", 2, 2,2,1,"password");			  
 			     startActivity(new Intent(getActivity(),StudentMainMenu.class));
+			     Global.EsEstudiante = false;
 			 }
 			 else if(Global.EsFamilia == true){
 					  	
@@ -98,8 +98,9 @@ public class MainFragment extends Fragment {
 		            		user.getProperty("email").toString(), "gender", 
 	    					"phone", "startDate", "endDate", "mail", 
 	   	   					"state", 95442, "allergies", 2, 2, 2,1,"password");
-		            Global.EsFamilia = false;
+		            
 		            startActivity(new Intent(getActivity(),FamilyMainMenu.class));
+		            Global.EsFamilia = false;
 		  }
 
 ///********************* ADD FAMILY OR STUDENT TO DATA BASE *********************************
