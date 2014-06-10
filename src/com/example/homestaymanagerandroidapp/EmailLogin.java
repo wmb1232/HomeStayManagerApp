@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ListActivity;
@@ -81,19 +82,45 @@ public class EmailLogin extends Activity {
            
     	   public void onClick(View v) {
     		     
-        	   System.out.println("ENTER BUTTON");
+        	System.out.println("ENTER BUTTON");
+
+        	
+        	
+        	
+
+        	
             final EditText firstName = (EditText) findViewById(R.id.edittext_firstName);
 
        	    final String fname = firstName.getText().toString();
+       	    if(fname.equals("")){
+    			new AlertDialog.Builder(EmailLogin.this).setTitle("Error").setMessage("The first name cannot be blank").setNeutralButton("Close", null).show(); 
+    			return;
+       	    }
+       	    
+       	    
+       	    
        	    
        	    final EditText lastName = (EditText) findViewById(R.id.editTextPassword);
-       	    final String lname = lastName.getText().toString();
+       	    final String lname = lastName.getText().toString(); 	    
+       	    if(lname.equals("")){
+    			new AlertDialog.Builder(EmailLogin.this).setTitle("Error").setMessage("The last name cannot be blank").setNeutralButton("Close", null).show(); 
+    			return;
+       	    }
 
        	    final EditText emaiL = (EditText) findViewById(R.id.editText_email);
        	    final String email = emaiL.getText().toString();
+       	    if(email.equals("")){
+    			new AlertDialog.Builder(EmailLogin.this).setTitle("Error").setMessage("The email cannot be blank").setNeutralButton("Close", null).show(); 
+    			return;
+       	    }
 
        	    final EditText phoneN = (EditText) findViewById(R.id.editText_phon);
        	    final String phone = phoneN.getText().toString();
+       	    if(phone.equals("")){
+    			new AlertDialog.Builder(EmailLogin.this).setTitle("Error").setMessage("The phone number cannot be blank").setNeutralButton("Close", null).show(); 
+    			return;
+       	    }
+
        	    
        	    final EditText mailingAddress = (EditText) findViewById(R.id.editText_mailing);
        	    final String mail = mailingAddress.getText().toString();
@@ -104,18 +131,35 @@ public class EmailLogin extends Activity {
 
        	    final EditText ate = (EditText) findViewById(R.id.editText_gender);
     	    final String gender = ate.getText().toString();
+       	    if(gender.equals("")){
+    			new AlertDialog.Builder(EmailLogin.this).setTitle("Error").setMessage("The gender cannot be blank").setNeutralButton("Close", null).show(); 
+    			return;
+       	    }
     	    
     	    final EditText zp = (EditText) findViewById(R.id.editTexUserName);
-       	    final int zip = Integer.parseInt(zp.getText().toString());     	    
+    	    int zip;
+    	    if(zp.getText().toString().equals("")){
+    	    	zip = 0;
+    	    }
+    	    else{
+    	    	zip = Integer.parseInt(zp.getText().toString());     	
+    	    	
+    	    }
  	    
     	    final EditText famsize = (EditText) findViewById(R.id.editText_famsize);
+    	    if(famsize.getText().toString().equals("")){
+    			new AlertDialog.Builder(EmailLogin.this).setTitle("Error").setMessage("The family size cannot be blank").setNeutralButton("Close", null).show(); 
+    			return;
+    	    }
+    	    
     	    final int familySizee = Integer.parseInt(famsize.getText().toString());
      	  
     	    final String state = "CA";
     	    
-    	    final EditText allerg = (EditText) findViewById(R.id.editText_eller);
+    	    final EditText allerg = (EditText) findViewById(R.id.editText_eller); 	    
     	    final String allergies = allerg.getText().toString();
-             
+    	    
+    	               
             values = new ArrayList<Student>();
             values = datasource.getAllStudents();  
             valuesFam = new ArrayList<Family>();	
