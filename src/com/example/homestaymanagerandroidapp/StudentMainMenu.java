@@ -150,5 +150,10 @@ public class StudentMainMenu extends ActionBarActivity {
 			return rootView;
 		}
 	}
+	
+	public void gotoManual(View v){
+    	startActivity(new Intent(StudentMainMenu.this,ManualSearchActivity.class));
+	
+	}
 
 }

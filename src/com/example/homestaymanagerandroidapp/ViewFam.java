@@ -1,6 +1,8 @@
 package com.example.homestaymanagerandroidapp;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -49,15 +51,13 @@ public class ViewFam extends ActionBarActivity {
 		 idArray= new int[length];
 		 
 		 
+
 		 for(int i = 0; i < strs.length; i++)	 {
 			 strs[i] =(fm.get(i)._id +" "+fm.get(i).firstName+" " + fm.get(i).lastName);
 			 idArray[i] = (fm.get(i)._id);
 			 System.out.println(strs[i]);
 		 }
-		 
-		 
-		 
-					 
+		
 	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(ViewFam.this,
 	    android.R.layout.simple_list_item_1, android.R.id.text1, strs); 
 	     
@@ -76,8 +76,19 @@ public class ViewFam extends ActionBarActivity {
         				  adb.setPositiveButton("Ok", null);
         				  adb.show(); 
         	*/	 // TextView clickedView = (TextView) view;
+        		  
+        		  System.out.println("FUCKINNG ID: " + position);
+        		  System.out.println("FUCKING Position: " + idArray[position]);
+
+        		  
+        		 List<Family> f =	 datasourc.getAllFamilies();
+        		 for(Family fam : f){
+        			 if(fam._id == idArray[position]){
+        				 Global.currentFam = fam;
+        			 }
+        		 }
         				  
-				 Global.currentFam = fm.get(idArray[position]);
+				//Global.currentFam = datasourc.get // fm.get(idArray[position]);
         		  
 				   
         		  startActivity(new Intent(ViewFam.this,View_specific_family.class));

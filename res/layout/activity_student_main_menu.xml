@@ -16,6 +16,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:clickable="true"
+        android:onClick="gotoManual"
         android:text="Manual Search" />
 
     <Button

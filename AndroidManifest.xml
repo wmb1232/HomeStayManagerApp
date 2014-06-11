@@ -56,6 +56,14 @@
             android:name="com.example.homestaymanagerandroidapp.View_specific_family"
             android:label="@string/title_activity_view_specific_family" >
         </activity>
+        <activity
+            android:name="com.example.homestaymanagerandroidapp.ManualSearchActivity"
+            android:label="@string/title_activity_manual_search" >
+        </activity>
+        <activity
+            android:name="com.example.homestaymanagerandroidapp.ListResultsActivity"
+            android:label="@string/title_activity_list_results" >
+        </activity>
     </application>
 
 </manifest>

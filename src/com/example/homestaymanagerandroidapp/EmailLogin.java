@@ -85,7 +85,7 @@ public class EmailLogin extends Activity {
         	System.out.println("ENTER BUTTON");
 
         	
-          	
+           	
             final EditText firstName = (EditText) findViewById(R.id.edittext_firstName);
 
        	    final String fname = firstName.getText().toString();
@@ -154,6 +154,15 @@ public class EmailLogin extends Activity {
     	    final EditText allerg = (EditText) findViewById(R.id.editText_eller); 	    
     	    final String allergies = allerg.getText().toString();
     	    
+    	    
+    	    final EditText enteredPass = (EditText) findViewById(R.id.editTextPass); 	    
+    	    final String passWord = enteredPass.getText().toString();
+    	    
+    	    if(passWord.equals("")){
+    			new AlertDialog.Builder(EmailLogin.this).setTitle("Error").setMessage("The password cannot be blank").setNeutralButton("Close", null).show(); 
+    			return;   	
+    	    }
+    	    
     	               
             values = new ArrayList<Student>();
             values = datasource.getAllStudents();  
@@ -181,7 +190,7 @@ public class EmailLogin extends Activity {
 
    	    			st = datasource.createStudent(fname, lname, email, gender, 
         		   					phone, startDate, endDate, mail, 
-        		   					state, zip, allergies, dog, cat,2,1,"password");        				   					
+        		   					state, zip, allergies, dog, cat,2,1,passWord);        				   					
    	    			
    	    			studentExist = true;
    	    			//Global.stu_id = values.get(values.size())._id;
@@ -191,7 +200,7 @@ public class EmailLogin extends Activity {
      	        	System.out.println(fname+ "\n"+ lname+ " \n" +email+ "\n" +gender+ "\n"+ 
 		   				   phone+ "\n" +startDate+ " \n" +endDate+ " \n" +mail+ " \n" 
 		   				   + state+ " \n"+ zip+ " \n" +allergies+ " \n" +dog+ " \n" +cat+ " \n"+familySizee+
-		   				   " \n"+smoke+ " \n"+"password");
+		   				   " \n"+smoke+ " \n"+passWord);
      	        	System.out.println(	Global.stu_id );
      	        	System.out.println("*************endest*************");
      	        	
@@ -218,7 +227,7 @@ public class EmailLogin extends Activity {
         	 
       	        	fm = datasource.createFamily(fname, lname, email, gender, 
     					phone, startDate, endDate, mail, 
-   	   					state, zip, allergies, dog, cat, familySizee,smoke,"password");     
+   	   					state, zip, allergies, dog, cat, familySizee,smoke,passWord);     
       	        	familyExist = false;               
       	        	// Global.fam_id = valuesFam.get(valuesFam.size())._id;
              
