@@ -1,5 +1,7 @@
 package com.example.homestaymanagerandroidapp;
 
+import java.util.List;
+
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -18,10 +20,13 @@ import android.os.Build;
 public class ListResultsActivity extends ActionBarActivity {
 
 	int idArray[];
+	HomeStayDataSource datasourc;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_list_results);
+		 datasourc = new HomeStayDataSource(this);
+		 datasourc.open();
 
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
@@ -35,12 +40,17 @@ public class ListResultsActivity extends ActionBarActivity {
 		 idArray= new int[length];
 		 
 		 
+		 System.out.println("STRS LENGTH: " + length);
+
+		 
 		 for(int i = 0; i < strs.length; i++)	 {
 			 strs[i] =(Global.familyList.get(i)._id +" "+Global.familyList.get(i).firstName+" " + Global.familyList.get(i).lastName);
 			 idArray[i] = (Global.familyList.get(i)._id);
 			 System.out.println(strs[i]);
 		 }
 		
+	    System.out.println("GLOBAL FAMILY SIZE: " + Global.familyList.size());
+		 
 	    ArrayAdapter<String> adapter = new ArrayAdapter<String>(ListResultsActivity.this,
 	    android.R.layout.simple_list_item_1, android.R.id.text1, strs); 
 	     
@@ -60,8 +70,15 @@ public class ListResultsActivity extends ActionBarActivity {
        				  adb.show(); 
        	*/	 // TextView clickedView = (TextView) view;
        				  
-			  Global.currentFam = Global.familyList.get(idArray[position]);
-       		 				   
+			 // Global.currentFam = Global.familyList.get(idArray[position]);
+       		 	
+     		 List<Family> f =	 datasourc.getAllFamilies();
+     		 for(Family fam : f){
+     			 if(fam._id == idArray[position]){
+     				 Global.currentFam = fam;
+     			 }
+     		 }
+     		 
        		  startActivity(new Intent(ListResultsActivity.this,View_specific_family.class));
        		  
        		  

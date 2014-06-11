@@ -13,5 +13,6 @@
     <string name="title_activity_view_specific_family">View_specific_family</string>
     <string name="title_activity_manual_search">ManualSearchActivity</string>
     <string name="title_activity_list_results">ListResultsActivity</string>
+    <string name="title_activity_view_edit">ViewEditActivity</string>
 
 </resources>

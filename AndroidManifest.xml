@@ -64,6 +64,10 @@
             android:name="com.example.homestaymanagerandroidapp.ListResultsActivity"
             android:label="@string/title_activity_list_results" >
         </activity>
+        <activity
+            android:name="com.example.homestaymanagerandroidapp.ViewEditActivity"
+            android:label="@string/title_activity_view_edit" >
+        </activity>
     </application>
 
 </manifest>

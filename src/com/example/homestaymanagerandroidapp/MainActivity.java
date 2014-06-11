@@ -58,7 +58,7 @@ public class MainActivity extends FragmentActivity {
               public void call(Session session, SessionState state, Exception exception) {
               }
         });
-       */
+       */ 
        
        /*
        Session session = Session.getActiveSession();

@@ -91,7 +91,13 @@ public class ManualSearchActivity extends ActionBarActivity {
 		 
 		Global.familyList = datasourc.getSearchFamilies(preferences, stud);
 		
-		startActivity(new Intent(this,ListResultsActivity.class));
+		System.out.println("SFUCK! + " +  preferences[0] + preferences[1] + preferences[2] + preferences[3] + preferences[4]);
+		
+		
+	    if(Global.familyList != null){
+			startActivity(new Intent(this,ListResultsActivity.class));	    	
+	    }
+
 		
 			
 	}

@@ -283,6 +283,8 @@ public class HomeStayDataSource {
 		
 		public ArrayList<Family> getSearchFamilies(Boolean[] preferences, Student student)
 		{
+			
+			System.out.println("FUCCK FELIX WU");
 			ArrayList<Family> families = new ArrayList<Family>();
 			
 			Cursor cursor = database.query(MySQLiteHelper.TABLE_FAMILIES,
@@ -318,7 +320,7 @@ public class HomeStayDataSource {
 			
 			if(preferences[1])
 			{
-				for(Family fam: dogPrefFamilies)
+				for(Family fam: genderFamilies)
 				{
 					if(fam.dogPet == student.dogPet)
 					{
@@ -386,6 +388,8 @@ public class HomeStayDataSource {
 				smokeFamilies = famSizeFamilies;
 			}
 			
+			
+			System.out.println("FUCCK");
 			return smokeFamilies;
 		}
 		
