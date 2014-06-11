@@ -85,10 +85,7 @@ public class EmailLogin extends Activity {
         	System.out.println("ENTER BUTTON");
 
         	
-        	
-        	
-
-        	
+          	
             final EditText firstName = (EditText) findViewById(R.id.edittext_firstName);
 
        	    final String fname = firstName.getText().toString();
@@ -96,9 +93,7 @@ public class EmailLogin extends Activity {
     			new AlertDialog.Builder(EmailLogin.this).setTitle("Error").setMessage("The first name cannot be blank").setNeutralButton("Close", null).show(); 
     			return;
        	    }
-       	    
-       	    
-       	    
+       	           	    
        	    
        	    final EditText lastName = (EditText) findViewById(R.id.editTextPassword);
        	    final String lname = lastName.getText().toString(); 	    

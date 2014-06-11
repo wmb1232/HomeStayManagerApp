@@ -4,4 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.homestaymanagerandroidapp.View_specific_family"
-    tools:ignore="MergeRootFrame" />
+    tools:ignore="MergeRootFrame" >
+
+    <ListView
+        android:id="@+id/listView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
+</FrameLayout>
