@@ -23,7 +23,7 @@ public class View_specific_family extends ActionBarActivity {
 		
 		//
 		
-		 String [] strs = new String[15];
+		 String [] strs = new String[12];
 		 
 		 strs[0] = "Name: "  + Global.currentFam.firstName + " " + Global.currentFam.lastName;
 		 strs[1] = "Address: " + Global.currentFam.address;
@@ -39,11 +39,14 @@ public class View_specific_family extends ActionBarActivity {
 		 strs[11] = "Password: " + Global.currentFam.password;
 		 final ListView  listView = (ListView) findViewById(R.id.listView1);
 		 
-		    ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(View_specific_family.this,
-		    	    android.R.layout.simple_list_item_1, android.R.id.text1, strs); 
-		    	     
-		    	     // Assign adapter to ListView
-		            listView.setAdapter(adapter2); 
+		 if(strs != null){
+			    ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(View_specific_family.this,
+			    	    android.R.layout.simple_list_item_1, android.R.id.text1, strs); 
+			    	     
+			    	     // Assign adapter to ListView
+			            listView.setAdapter(adapter2); 			 
+		 }
+
 		 
 		 
 	}

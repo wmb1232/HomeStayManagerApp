@@ -126,10 +126,16 @@ public class EmailLogin extends Activity {
 
        	    final EditText ate = (EditText) findViewById(R.id.editText_gender);
     	    final String gender = ate.getText().toString();
+    	    System.out.println(gender);
        	    if(gender.equals("")){
     			new AlertDialog.Builder(EmailLogin.this).setTitle("Error").setMessage("The gender cannot be blank").setNeutralButton("Close", null).show(); 
     			return;
        	    }
+       	    /*
+       	    else if(!gender.equals("M") || !gender.equals("F")){
+    			new AlertDialog.Builder(EmailLogin.this).setTitle("Error").setMessage("You must input M or F for gender").setNeutralButton("Close", null).show(); 
+    			return;
+       	    }*/
     	    
     	    final EditText zp = (EditText) findViewById(R.id.editTexUserName);
     	    int zip;
@@ -137,8 +143,7 @@ public class EmailLogin extends Activity {
     	    	zip = 0;
     	    }
     	    else{
-    	    	zip = Integer.parseInt(zp.getText().toString());     	
-    	    	
+    	    	zip = Integer.parseInt(zp.getText().toString());     		
     	    }
  	    
     	    final EditText famsize = (EditText) findViewById(R.id.editText_famsize);

@@ -18,15 +18,6 @@
         android:layout_centerHorizontal="true"
         android:src="@drawable/abc_ab_bottom_solid_dark_holo" />
 
-    <com.facebook.widget.LoginButton
-        android:id="@+id/authButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/imageView1"
-        android:layout_alignLeft="@+id/button1"
-        android:layout_alignRight="@+id/button1"
-        android:layout_marginBottom="38dp" />
-
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
@@ -98,23 +89,34 @@
         android:layout_above="@+id/authButton"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp" >
-
-        <RadioButton
-            android:id="@+id/radio_student"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
-            android:checked="false"
-            android:onClick="onRadioButtonClicked"
-            android:text="Student" />
-
-        <RadioButton
-            android:id="@+id/radio_family"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="false"
-            android:onClick="onRadioButtonClicked"
-            android:text="Family" />
     </RadioGroup>
+
+    <RadioButton
+        android:id="@+id/radio_student"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textUsername"
+        android:layout_below="@+id/button1"
+        android:layout_marginTop="48dp"
+        android:checked="false"
+        android:onClick="onRadioButtonClicked"
+        android:text="Student" />
+
+    <com.facebook.widget.LoginButton
+        android:id="@+id/authButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageView1"
+        android:layout_alignLeft="@+id/editTexUserName" />
+
+    <RadioButton
+        android:id="@+id/radio_family"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/radio_student"
+        android:layout_below="@+id/radio_student"
+        android:checked="false"
+        android:onClick="onRadioButtonClicked"
+        android:text="Family" />
 
 </RelativeLayout>

@@ -51,13 +51,14 @@ public class MainActivity extends FragmentActivity {
             .findFragmentById(android.R.id.content);
         }
       // start Facebook Login
+        /*
        Session.openActiveSession(this, true, new Session.StatusCallback() {
         // callback when session changes state
               @Override
               public void call(Session session, SessionState state, Exception exception) {
               }
         });
-       
+       */
        
        /*
        Session session = Session.getActiveSession();

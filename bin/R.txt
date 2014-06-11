@@ -354,10 +354,10 @@ int id action_mode_close_button 0x7f050026
 int id action_settings 0x7f05008a
 int id activity_chooser_view_content 0x7f050027
 int id always 0x7f05000d
-int id authButton 0x7f050061
+int id authButton 0x7f050062
 int id beginning 0x7f050013
 int id btnSubmit 0x7f05004f
-int id button1 0x7f050062
+int id button1 0x7f050061
 int id button_login 0x7f05005f
 int id changeDate 0x7f050054
 int id changeEndDate 0x7f05004e
